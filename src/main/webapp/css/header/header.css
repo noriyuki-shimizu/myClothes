@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+
+header {
+	background-image: url(../../img/yohji_collection.jpg);
+	height: 200px;
+}
+
+#contextPath {
+	display: none;
+}
+
+.pageTitle {
+	font-family: 'New Gulim';
+	border-bottom: solid 3px black;
+}
