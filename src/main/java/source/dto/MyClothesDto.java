@@ -11,11 +11,14 @@ public class MyClothesDto {
 	/**	ブランド名 */
 	private String brandName;
 	
-	/**	ジャンルリスト */
+	/**	ジャンルマスタ */
 	private MGenreDto mGenreDto;
 	
-	/**	店リスト */
+	/**	店マスタ */
 	private MShopDto mShopDto;
+	
+	/**	画像マスタ */
+	private MImageDto mImageDto;
 	
 	/**	金額 */
 	private BigDecimal price;
@@ -61,6 +64,14 @@ public class MyClothesDto {
 		this.mShopDto = mShopDto;
 	}
 
+	public MImageDto getmImageDto() {
+		return mImageDto;
+	}
+
+	public void setmImageDto(MImageDto mImageDto) {
+		this.mImageDto = mImageDto;
+	}
+
 	public BigDecimal getPrice() {
 		return price;
 	}
@@ -92,5 +103,5 @@ public class MyClothesDto {
 	public void setDeleteFlg(Boolean deleteFlg) {
 		this.deleteFlg = deleteFlg;
 	}
-	
+
 }

@@ -40,13 +40,18 @@
 <!-- 					<li><a class="notLink" href="#">サブアイテム</a></li> -->
 <!-- 				</ul> -->
 			</li>
+			<li><a href="${pageContext.request.contextPath}/ShopInfoBulkInput/">お店情報一括取り込み</a></li>
 			<li><a href="${pageContext.request.contextPath}/ShopInfoInput/">お店情報入力</a></li>
+			<li><a href="${pageContext.request.contextPath}/ImageInfoBulkInput/">画像情報一括取り込み</a></li>
+			<li><a href="${pageContext.request.contextPath}/ImageInfoInput/">画像情報入力</a></li>
 		</ul>
 	</li>
 	<li><a class="notLink" href="#">ヘルプ</a>
 		<ul>	
 			<li>
-				<a href="${pageContext.request.contextPath}/ClothesInfoBulkInputTemplate/">服情報一括取り込みテンプレート</a>
+				<a href="${pageContext.request.contextPath}/BulkInputTemplates/ClothesInfo">服情報一括取り込み用テンプレート</a>
+				<a href="${pageContext.request.contextPath}/BulkInputTemplates/ShopInfo">お店情報一括取り込み用テンプレート</a>
+				<a href="${pageContext.request.contextPath}/BulkInputTemplates/ImageInfo">画像情報一括取り込み用テンプレート</a>
 			</li>
 		</ul>
 	</li>
