@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>服情報入力</title>
 </head>
-<link type="text/css" media="screen" href="${pageContext.request.contextPath}/css/pages/system/clothesInfoInput.css" rel="stylesheet" />
+<link type="text/css" media="screen" href="${pageContext.request.contextPath}/css/pages/system/inputForm/inputFormHedder.css" rel="stylesheet" />
 <body>
 
 	<%@ include file="../../header/header.jsp"%>
@@ -13,14 +13,15 @@
 	<h1 class="pageTitle">服情報入力</h1>
 
 	<div id="form-main">
-		<div id="form-div">
+		<div class="form-div">
 			<form class="form" id="form1">
 
-				<p class="name">
+				<p class="inputValue">
 					<input name="name" type="text"
 						class="feedback-input"
 						placeholder="Name" id="name" />
 				</p>
+				<!-- TODO: idとかclassをどうにかして。。。美しくできない限り、次へ行くな。。。 -->
 
 				<p class="email">
 					<input name="email" type="text"
@@ -36,10 +37,10 @@
 
 			</form>
 		</div>
-			<div class="submit">
-				<input type="submit" value="登録" id="button-blue" />
-				<div class="ease"></div>
-			</div>
+		<div class="submit">
+			<input type="submit" value="登録" id="button-blue" />
+			<div class="ease"></div>
+		</div>
 	</div>
 
 
