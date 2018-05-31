@@ -21,6 +21,8 @@
 .form {
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
+	align-content: flex-start;
 }
 
 .feedback-input {
@@ -53,44 +55,6 @@
 .focused {
 	color: #30aed6;
 	border: #30aed6 solid 3px;
-}
-
-/* Icons ---------------------------------- */
-#inputValue {
-/* 	background-image: url(http://rexkirby.com/kirbyandson/images/name.svg); */
-	background-size: 30px 30px;
-	background-position: 11px 8px;
-	background-repeat: no-repeat;
-}
-
-#inputValue:focus {
-/* 	background-image: url(http://rexkirby.com/kirbyandson/images/name.svg); */
-	background-size: 30px 30px;
-	background-position: 8px 5px;
-	background-position: 11px 8px;
-	background-repeat: no-repeat;
-}
-
-#email {
-/* 	background-image: url(http://rexkirby.com/kirbyandson/images/email.svg); */
-	background-size: 30px 30px;
-	background-position: 11px 8px;
-	background-repeat: no-repeat;
-}
-
-#email:focus {
-/* 	background-image: url(http://rexkirby.com/kirbyandson/images/email.svg); */
-	background-size: 30px 30px;
-	background-position: 11px 8px;
-	background-repeat: no-repeat;
-}
-
-#comment {
-/* 	background-image: */
-/* 		url(http://rexkirby.com/kirbyandson/images/comment.svg); */
-	background-size: 30px 30px;
-	background-position: 11px 8px;
-	background-repeat: no-repeat;
 }
 
 textarea {

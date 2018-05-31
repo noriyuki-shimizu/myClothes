@@ -16,24 +16,33 @@
 		<div class="form-div">
 			<form class="form" id="form1">
 
-				<p class="inputValue">
-					<input name="name" type="text"
-						class="feedback-input"
-						placeholder="Name" id="name" />
-				</p>
-				<!-- TODO: idとかclassをどうにかして。。。美しくできない限り、次へ行くな。。。 -->
+				<input name="brandCd" type="text"
+					class="feedback-input"
+					placeholder="ブランドCD" id="brand_cd" />
 
-				<p class="email">
-					<input name="email" type="text"
-						class="feedback-input" id="email"
-						placeholder="Email" />
-				</p>
+				<input name="genreCd" type="text"
+					class="feedback-input" id="genre_cd"
+					placeholder="ジャンルCD" />
 
-				<p class="text">
-					<textarea name="text"
-						class="feedback-input"
-						id="comment" placeholder="Comment"></textarea>
-				</p>
+				<input name="shopCd" type="text"
+					class="feedback-input" id="shop_cd"
+					placeholder="お店CD" />
+
+				<input name="image" type="text"
+					class="feedback-input" id="image"
+					placeholder="画像（テキストじゃねーぞこら）" />
+
+				<input name="price" type="text"
+					class="feedback-input" id="price"
+					placeholder="金額" />
+
+				<input name="purchaseDate" type="text"
+					class="feedback-input" id="purchase_date"
+					placeholder="購入日" />
+
+				<textarea name="text"
+					class="feedback-input"
+					id="details" placeholder="備考"></textarea>
 
 			</form>
 		</div>
