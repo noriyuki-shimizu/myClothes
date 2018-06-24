@@ -10,9 +10,11 @@
 <meta charset="UTF-8">
 
 <link href="${pageContext.request.contextPath}/css/header/header.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/common/jquery-ui/jquery-ui-1.12.1.custom/jquery-ui.min.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/css/common/smartmenus/sm-core-css.css" rel="stylesheet" type="text/css" />
 <link href="${pageContext.request.contextPath}/css/common/smartmenus/sm-blue.css" rel="stylesheet" type="text/css" />
 <script src="${pageContext.request.contextPath}/common/jquery/jquery-1.11.0.min.js"></script>
+<script src="${pageContext.request.contextPath}/common/jquery-ui/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/common/smartmenus/jquerySmartmenus.js"></script>
 <script src="${pageContext.request.contextPath}/js/header/header.js"></script>
 </head>

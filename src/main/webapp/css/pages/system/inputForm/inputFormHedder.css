@@ -2,7 +2,6 @@
 
 #form-main {
 	width: 100%;
-	float: left;
 	padding-top: 0px;
 }
 
@@ -20,12 +19,16 @@
 
 .form {
 	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
-	align-content: flex-start;
+	flex-flow: row wrap;
+	justify-content: left;
+}
+
+.input-title {
+	margin-left: 15px;
 }
 
 .feedback-input {
+	width: 90%;
 	color: #3c3c3c;
 	font-family: Helvetica, Arial, sans-serif;
 	font-weight: 500;
@@ -33,9 +36,9 @@
 	border-radius: 0;
 	line-height: 22px;
 	background-color: #fbfbfb;
+	margin: 15px 0px 15px 5px;
 	padding: 13px 13px 13px 13px;
 	margin-bottom: 10px;
-/* 	width: 100%; */
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
@@ -57,15 +60,58 @@
 	border: #30aed6 solid 3px;
 }
 
-textarea {
+label {
+	font-weight: bold; 
+}
+
+.input-text, .input-date, .input-file {
+	width: 420px;
+	height: 75px;
+	line-height: 50%;
+	resize: vertical;
+}
+
+.input-date input[type="text"], .input-file input[type="text"] {
+	width: 330px;
+	height: 55px;
+	line-height: 50%;
+	resize: vertical;
+}
+
+.input-textarea, textarea {
 	width: 100%;
 	height: 150px;
 	line-height: 150%;
 	resize: vertical;
 }
 
+.ui-datepicker-trigger {
+	width: 65px;
+	height: 75px;
+	margin-right: 20px;
+	padding-top: 5px;
+	float: right;
+}
+
+div.float-clear {
+	clear: both;
+}
+
+input[type="file"] {
+	display: none;
+}
+
 input:hover, textarea:hover, input:focus, textarea:focus {
 	background-color: white;
+}
+
+#file_select_button {
+	width: 50px;
+	height: 56px;
+	margin-top: -5px;
+	margin-left: -10px;
+	padding-top: 6px;
+	background-color: black;
 }
 
 #button-blue {
