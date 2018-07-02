@@ -5,6 +5,10 @@ import java.sql.Date;
 
 public class MyClothesDto {
 	
+	public MyClothesDto(Long myClothesId) {
+		this.myClothesId = myClothesId;
+	}
+	
 	/**	服情報　主キー */
 	private Long myClothesId;
 	

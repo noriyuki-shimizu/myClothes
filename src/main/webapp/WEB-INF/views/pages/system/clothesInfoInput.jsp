@@ -11,10 +11,14 @@
 
 	<h1 class="pageTitle">服情報入力</h1>
 
-	<div id="form-main">
-		<div class="form-div">
-			<form class="form" id="form1">
+	<div id="form_main">
+		<div id="form_div_template">
 
+			<input type="checkbox" name="selectRegistForm" id="select_regist_form" class="select-regist-form"/>
+			<label for="select_regist_form" id="check_regist_label" class="check-regist-label">未選択</label>
+			
+			<form class="form" id="form1">
+			
 				<p class="input-text">
 					<label class="input-title" for="brand_cd">ブランドCD</label><br>
 					<input name="brandCd" type="text"
@@ -36,8 +40,8 @@
 				<p class="input-file">
 					<label class="input-title" for="image">画像ファイル</label><br>
 					<input name="imageText" type="text" readonly="readonly"
-						class="feedback-input" id="image_text" placeholder="選択されていません">
-					<button type="button" id="file_select_button">
+						class="feedback-input" id="image_text" placeholder="選択されていません" />
+					<button type="button" class="file-select-button">
 						<span class="ui-icon ui-icon-search"></span>
 					</button>
 					<div class="float-clear"></div>
@@ -66,10 +70,19 @@
 	
 			</form>
 		</div>
+	</div>
+	<div class="pageFooter">
+		<div>
+			<input type="button" value="フォーム追加" class="button-blue" id="add_form_button">
+		</div>
+		<div>
+			<input type="button" value="フォーム削除" class="button-blue" id="delete_form_button">
+		</div>
 		<div class="submit">
-			<input type="submit" value="登録" id="button-blue" />
+			<input type="submit" value="登録" class="button-blue" id="submit_button" />
 			<div class="ease"></div>
 		</div>
+		<div class="float-clear"></div>
 	</div>
 
 

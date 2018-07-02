@@ -4,22 +4,99 @@
 
 $(function() {
 
-	// jQuery UI カレンダーオプション設定
-	setDatepicker();
+	// 初期表示：フォームを画面にアペンドする
+	formAppend();
 	
+	// TODO: これうまくいかないから。。。
 	// 画像入力欄、検索ボタン押下時イベント
-	$("#image_text, #file_select_button").on('click', function() {
+	$(document).on('click', "#image_text, #file_select_button", function() {
 		$("#image_file").click();
 	});
 	
 	// 画像ファイル選択時のイベント
-	$('input[name="imageFile"]').on('change', function() {
+	$(document).on('change', "#image_file", function() {
 		setFileName($('input[name="imageText"]'));
+	});
+	
+	// フォーム追加ボタン押下時のイベント
+	$("#add_form_button").on('click', function() {
+		formAppend();
+	});
+	
+	// フォーム削除ボタン押下時のイベント
+	$("#delete_form_button").on('click', function() {
+		if(isConfirm("選択されたフォームを削除します。\nよろしいですか？\n\n※入力されたフォーム内の情報も削除されてしまいます。")) {
+			formRemove($(".select-regist-form")).then(function() {
+				// フォームがすべて削除された場合
+				if($(".form-div").length === 0) {
+					// フォームを1つ追加する
+					formAppend();
+				}
+			});
+		}
 	});
 	
 });
 
-function setDatepicker() {
+// フォームをアペンドする
+function formAppend() {
+	// フォームのクローン
+	$cloneFormDiv = $("#form_div_template").clone();
+	// フォームの数
+	var formDivCnt = String($("#form_main").children().length);
+	
+	// ========== クローンしたフォームの設定 ==========
+	$cloneFormDiv.attr("id", "form_div" + formDivCnt);
+	$cloneFormDiv.addClass("form-div");
+	$cloneFormDiv.css("display", "");
+	
+	// jQuery UI カレンダーオプション設定
+	$cloneFormDiv.find("#purchase_date").attr("id", "purchase_date" + formDivCnt);
+	setDatepicker($cloneFormDiv.find("#purchase_date" + formDivCnt));
+	
+	$cloneFormDiv.find("#select_regist_form").attr("id", "select_regist_form" + formDivCnt);
+	$cloneFormDiv.find("#check_regist_label").attr("for", "select_regist_form" + formDivCnt);
+	$cloneFormDiv.find("#check_regist_label").attr("id", "check_regist_label" + formDivCnt);
+
+	$("#form_main").append($cloneFormDiv);
+	
+	// 登録フォームのチェックボックスが変更時のイベント
+	$("#select_regist_form" + formDivCnt).on("change", function() {
+		var selectRegistFormId = $("#select_regist_form" + formDivCnt + ":checked");
+		selectRegistFormChangeText(selectRegistFormId, formDivCnt);
+	});
+	
+}
+
+// フォームの削除
+function formRemove($selectRegistForm) {
+	// promise
+	var d = new $.Deferred();
+	
+	// 選択されたフォームを削除する
+	$selectRegistForm.each((i, $element) => {
+		if($($element).prop('checked')) {
+			$($element).parent().css("display", "none");
+			$($element).parent().removeClass();
+			d.resolve();
+		}
+	});
+	return d.promise();
+}
+
+function selectRegistFormChangeText($selectRegistFormChecked, formDivCnt) {
+	var checkRegistLabelId = "#check_regist_label" + formDivCnt;
+	if($selectRegistFormChecked.prop('checked')) {
+		$(checkRegistLabelId).text("選択済");
+		$(checkRegistLabelId).css("color", "#0171bd");
+	}
+	else {
+		$(checkRegistLabelId).text("未選択");
+		$(checkRegistLabelId).css("color", "red");
+	}
+}
+
+function setDatepicker($purchaseDate) {
 	// Datepicker オプションの初期値定義を変更
 	$.datepicker.setDefaults({
 		// 日本語へローカライズ
@@ -72,7 +149,7 @@ function setDatepicker() {
 		this._hideDatepicker();
 	}
 
-	$("#purchase_date").datepicker();
+	$purchaseDate.datepicker();
 }
 
 // ファイルが選択された際に発火する
@@ -85,6 +162,13 @@ function setFileName($imageText) {
 	// ファイルが選択されていない場合
 	else {
 		$imageText.val("");
-		$imageText.attr('placeholder','選択されていません');
+	}
+}
+
+function isConfirm(dialogMsg) {
+	if(confirm(dialogMsg)) {
+		return true;
+	} else {
+		return false;
 	}
 }

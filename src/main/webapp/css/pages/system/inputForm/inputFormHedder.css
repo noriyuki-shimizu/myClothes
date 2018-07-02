@@ -1,8 +1,12 @@
 @CHARSET "UTF-8";
 
-#form-main {
+#form_main {
 	width: 100%;
 	padding-top: 0px;
+}
+
+#form_div_template {
+	display: none;
 }
 
 .form-div {
@@ -12,7 +16,7 @@
 	padding-top: 20px;
 	padding-bottom: 50px;
 	width: 90%;
-	margin: 0 auto;
+	margin: 1% 1% 1% 2%;
 	-moz-border-radius: 7px;
 	-webkit-border-radius: 7px;
 }
@@ -21,6 +25,68 @@
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: left;
+	margin-top: 45px;
+}
+
+.input-checkbox {
+	z-index: 1;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+.check-regist-label {
+  -webkit-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+  color: red;
+  position: absolute;
+  display: inline-block;
+  padding: 0 0 0 42px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.check-regist-label:hover:after {
+  border-color: #0171bd;
+}
+
+.check-regist-label:after {
+  -webkit-transition: border-color 0.2s linear;
+  transition: border-color 0.2s linear;
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  display: block;
+  margin-top: -10px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  content: '';
+}
+
+.check-regist-label:before {
+  -webkit-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+  position: absolute;
+  top: 50%;
+  left: 21px;
+  display: block;
+  margin-top: -7px;
+  width: 5px;
+  height: 9px;
+  border-right: 3px solid #0171bd;
+  border-bottom: 3px solid #0171bd;
+  content: '';
+  opacity: 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+input[type=checkbox]:checked + .check-regist-label:before {
+  opacity: 1;
 }
 
 .input-title {
@@ -105,7 +171,7 @@ input:hover, textarea:hover, input:focus, textarea:focus {
 	background-color: white;
 }
 
-#file_select_button {
+.file-select-button {
 	width: 50px;
 	height: 56px;
 	margin-top: -5px;
@@ -114,28 +180,57 @@ input:hover, textarea:hover, input:focus, textarea:focus {
 	background-color: black;
 }
 
-#button-blue {
-	font-size: 24px;
-	padding-top: 22px;
-	padding-bottom: 22px;
-	float: right;
-	width: 10%;
+.button-blue {
+	font-size: 20px;
+	width: 160px;
 	position: relative;
 	display: inline-block;
-	margin-top: 20px;
-	margin-right: 5%;
 	text-decoration: none;
 	color: #FFF;
-	background: black; /*背景色*/
 	border-bottom: solid 6px #7b7a7a; /*少し濃い目の色に*/
-	border-radius: 4px; /*角の丸み*/
+	border-radius: 10px; /*角の丸み*/
 	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), 0 2px 2px
 		rgba(0, 0, 0, 0.19);
 	font-weight: 700;
 }
 
-#button-blue:active {
+.button-blue:active {
 	border-bottom: solid 2px #7b7a7a;
 	box-shadow: 0 0 6px rgba(0, 0, 0, 0.30);
 }
 
+.pageFooter {
+	position: fixed;	/* フッターを固定する */
+	bottom: 0;			/* 上部から配置の基準位置を決める */ 
+	width: 100%;		/* フッターの横幅を指定する */
+	padding-bottom: 20px;		/* フッター内側の余白を指定する(上下左右) */
+	padding-top: 10px;
+	background-color: #FFFFFF;	/* フッターの背景色を指定する */
+}
+
+#add_form_button {
+	float: left;
+	background: navy; /*背景色*/
+	padding-top: 22px;
+	padding-bottom: 22px;
+	margin-top: 10px;
+	margin-left: 4%;
+}
+
+#delete_form_button {
+	float: left;
+	background: red; /*背景色*/
+	padding-top: 22px;
+	padding-bottom: 22px;
+	margin-top: 10px;
+	margin-left: 1%;
+}
+
+#submit_button {
+	float: right;
+	background: green; /*背景色*/
+	padding-top: 22px;
+	padding-bottom: 22px;
+	margin-top: 10px;
+	margin-right: 8%;
+}
