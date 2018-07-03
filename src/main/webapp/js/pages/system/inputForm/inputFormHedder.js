@@ -7,16 +7,10 @@ $(function() {
 	// 初期表示：フォームを画面にアペンドする
 	formAppend();
 	
-	// TODO: これうまくいかないから。。。
-	// 画像入力欄、検索ボタン押下時イベント
-	$(document).on('click', "#image_text, #file_select_button", function() {
-		$("#image_file").click();
-	});
-	
 	// 画像ファイル選択時のイベント
-	$(document).on('change', "#image_file", function() {
-		setFileName($('input[name="imageText"]'));
-	});
+//	$(document).on('change', "#image_file", function() {
+//		setFileName($('input[name="imageText"]'));
+//	});
 	
 	// フォーム追加ボタン押下時のイベント
 	$("#add_form_button").on('click', function() {
@@ -26,7 +20,7 @@ $(function() {
 	// フォーム削除ボタン押下時のイベント
 	$("#delete_form_button").on('click', function() {
 		if(isConfirm("選択されたフォームを削除します。\nよろしいですか？\n\n※入力されたフォーム内の情報も削除されてしまいます。")) {
-			formRemove($(".select-regist-form")).then(function() {
+			formRemove($(".select-regist-form")).then(() => {
 				// フォームがすべて削除された場合
 				if($(".form-div").length === 0) {
 					// フォームを1つ追加する
@@ -43,7 +37,8 @@ function formAppend() {
 	// フォームのクローン
 	$cloneFormDiv = $("#form_div_template").clone();
 	// フォームの数
-	var formDivCnt = String($("#form_main").children().length);
+	var formDivCnt = String($(".form-div").length + 1);
+	console.log(formDivCnt);
 	
 	// ========== クローンしたフォームの設定 ==========
 	$cloneFormDiv.attr("id", "form_div" + formDivCnt);
@@ -53,35 +48,53 @@ function formAppend() {
 	// jQuery UI カレンダーオプション設定
 	$cloneFormDiv.find("#purchase_date").attr("id", "purchase_date" + formDivCnt);
 	setDatepicker($cloneFormDiv.find("#purchase_date" + formDivCnt));
-	
+
+	// フォームの選択欄における設定
 	$cloneFormDiv.find("#select_regist_form").attr("id", "select_regist_form" + formDivCnt);
 	$cloneFormDiv.find("#check_regist_label").attr("for", "select_regist_form" + formDivCnt);
 	$cloneFormDiv.find("#check_regist_label").attr("id", "check_regist_label" + formDivCnt);
-
-	$("#form_main").append($cloneFormDiv);
 	
+	// 画像ファイル選択における設定
+	$cloneFormDiv.find("#image_text").attr("id", "image_text" + formDivCnt);
+	$cloneFormDiv.find("#file_select_button").attr("id", "file_select_button" + formDivCnt);
+	$cloneFormDiv.find("#image_file").attr("id", "image_file" + formDivCnt)
+	
+	$("#form_main").append($cloneFormDiv);
+
 	// 登録フォームのチェックボックスが変更時のイベント
 	$("#select_regist_form" + formDivCnt).on("change", function() {
 		var selectRegistFormId = $("#select_regist_form" + formDivCnt + ":checked");
 		selectRegistFormChangeText(selectRegistFormId, formDivCnt);
 	});
 	
+	// 画像入力欄、検索ボタン押下時イベント
+	var imageClickEventString = "#image_text" + formDivCnt + ", #file_select_button" + formDivCnt;
+	$(imageClickEventString).on("click", function() {
+		$("#image_file" + formDivCnt).click();
+	});
+	
+	// 画像ファイル選択時のイベント
+	$("#image_file" + formDivCnt).on('change', function() {
+		setFileName(this, $("#image_text" + formDivCnt));
+	});
+	
 }
 
 // フォームの削除
-function formRemove($selectRegistForm) {
-	// promise
-	var d = new $.Deferred();
-	
-	// 選択されたフォームを削除する
+async function formRemove($selectRegistForm) {
 	$selectRegistForm.each((i, $element) => {
-		if($($element).prop('checked')) {
-			$($element).parent().css("display", "none");
-			$($element).parent().removeClass();
-			d.resolve();
-		}
+		selectFormRemove($element);
 	});
-	return d.promise();
+	return ;
+}
+
+// 選択されたフォームの削除実行メソッド
+function selectFormRemove($element) {
+	return new Promise(resolve => {
+		$($element).parent().css("display", "none");
+		$($element).parent().removeClass();
+		resolve();
+	});
 }
 
 function selectRegistFormChangeText($selectRegistFormChecked, formDivCnt) {
@@ -153,15 +166,15 @@ function setDatepicker($purchaseDate) {
 }
 
 // ファイルが選択された際に発火する
-function setFileName($imageText) {
+function setFileName($imageFile, $imageText) {
 	// ファイルが選択されている場合
-	if($("#image_file")[0].files[0]) {
-		var imageFileName = $("#image_file")[0].files[0].name;
-		$imageText.val(imageFileName);
+	if($($imageFile)[0].files[0]) {
+		var imageFileName = $($imageFile)[0].files[0].name;
+		$($imageText).val(imageFileName);
 	} 
 	// ファイルが選択されていない場合
 	else {
-		$imageText.val("");
+		$($imageText).val("");
 	}
 }
 

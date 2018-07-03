@@ -38,14 +38,14 @@
 				</p>
 	
 				<p class="input-file">
-					<label class="input-title" for="image">画像ファイル</label><br>
+					<label class="input-title" for="image_file">画像ファイル</label><br>
 					<input name="imageText" type="text" readonly="readonly"
 						class="feedback-input" id="image_text" placeholder="選択されていません" />
-					<button type="button" class="file-select-button">
+					<button type="button" id="file_select_button" class="file-select-button">
 						<span class="ui-icon ui-icon-search"></span>
 					</button>
 					<div class="float-clear"></div>
-					<input name="imageFile" type="file" id="image_file" />
+					<input name="imageFile" type="file" id="image_file" class="image-file"/>
 				</p>
 	
 				<p class="input-text">
