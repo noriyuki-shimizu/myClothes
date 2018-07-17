@@ -45,7 +45,8 @@
 						<span class="ui-icon ui-icon-search"></span>
 					</button>
 					<div class="float-clear"></div>
-					<input name="imageFile" type="file" id="image_file" class="image-file"/>
+					<input name="imageFile" type="file" accept=".png"
+						id="image_file" class="image-file"/>
 				</p>
 	
 				<p class="input-text">
@@ -77,6 +78,12 @@
 		</div>
 		<div>
 			<input type="button" value="フォーム削除" class="button-blue" id="delete_form_button">
+		</div>
+		<div>
+			<input type="button" value="全選択" class="button-blue" id="select_all_button">
+		</div>
+		<div>
+			<input type="button" value="全解除" class="button-blue" id="clear_all_button">
 		</div>
 		<div class="submit">
 			<input type="submit" value="登録" class="button-blue" id="submit_button" />

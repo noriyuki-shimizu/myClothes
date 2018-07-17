@@ -7,28 +7,39 @@ $(function() {
 	// 初期表示：フォームを画面にアペンドする
 	formAppend();
 	
-	// 画像ファイル選択時のイベント
-//	$(document).on('change', "#image_file", function() {
-//		setFileName($('input[name="imageText"]'));
-//	});
-	
 	// フォーム追加ボタン押下時のイベント
-	$("#add_form_button").on('click', function() {
+	$("#add_form_button").on('click', () => {
 		formAppend();
 	});
 	
 	// フォーム削除ボタン押下時のイベント
-	$("#delete_form_button").on('click', function() {
-		if(isConfirm("選択されたフォームを削除します。\nよろしいですか？\n\n※入力されたフォーム内の情報も削除されてしまいます。")) {
-			formRemove($(".select-regist-form")).then(() => {
-				// フォームがすべて削除された場合
-				if($(".form-div").length === 0) {
-					// フォームを1つ追加する
-					formAppend();
-				}
-			});
-		}
+	$("#delete_form_button").on('click', () => {
+		isFormChecked($(".select-regist-form")).then(resltFlg => {
+			if(!resltFlg) {
+				alert("フォームを選択してください。");
+				return ;
+			}
+			if(isConfirm("選択されたフォームを削除します。\nよろしいですか？\n\n※入力されたフォーム内の情報も削除されてしまいます。")) {
+				formRemove($(".select-regist-form")).then(() => {
+					// フォームがすべて削除された場合
+					if($(".form-div").length === 0) {
+						// フォームを1つ追加する
+						formAppend();
+					}
+				});
+			}
+		});
 	});
+	
+	// 全選択がクリックされた際のイベント
+	$("#select_all_button").on('click', () => {
+		selectAllCheck();
+	});
+	
+	// 全解除がクリックされた際のイベント
+	$("#clear_all_button").on('click', () => {
+		clearAllCheck();
+	})
 	
 });
 
@@ -38,7 +49,6 @@ function formAppend() {
 	$cloneFormDiv = $("#form_div_template").clone();
 	// フォームの数
 	var formDivCnt = String($(".form-div").length + 1);
-	console.log(formDivCnt);
 	
 	// ========== クローンしたフォームの設定 ==========
 	$cloneFormDiv.attr("id", "form_div" + formDivCnt);
@@ -62,20 +72,22 @@ function formAppend() {
 	$("#form_main").append($cloneFormDiv);
 
 	// 登録フォームのチェックボックスが変更時のイベント
-	$("#select_regist_form" + formDivCnt).on("change", function() {
-		var selectRegistFormId = $("#select_regist_form" + formDivCnt + ":checked");
-		selectRegistFormChangeText(selectRegistFormId, formDivCnt);
+	$("#select_regist_form" + formDivCnt).on("change", () => {
+		var $selectRegistFormId = $("#select_regist_form" + formDivCnt);
+		var $checkRegistLabel = $("#check_regist_label" + formDivCnt)
+		selectRegistFormChangeText($selectRegistFormId, $checkRegistLabel);
 	});
 	
 	// 画像入力欄、検索ボタン押下時イベント
 	var imageClickEventString = "#image_text" + formDivCnt + ", #file_select_button" + formDivCnt;
-	$(imageClickEventString).on("click", function() {
+	$(imageClickEventString).on("click", () => {
 		$("#image_file" + formDivCnt).click();
 	});
 	
 	// 画像ファイル選択時のイベント
 	$("#image_file" + formDivCnt).on('change', function() {
 		setFileName(this, $("#image_text" + formDivCnt));
+		imageTooltipAppend(this, $("#image_text" + formDivCnt));
 	});
 	
 }
@@ -89,23 +101,24 @@ async function formRemove($selectRegistForm) {
 }
 
 // 選択されたフォームの削除実行メソッド
-function selectFormRemove($element) {
+function selectFormRemove(element) {
 	return new Promise(resolve => {
-		$($element).parent().css("display", "none");
-		$($element).parent().removeClass();
+		if($(element).prop("checked")) {
+			$(element).parent().css("display", "none");
+			$(element).parent().remove();
+		}
 		resolve();
 	});
 }
 
-function selectRegistFormChangeText($selectRegistFormChecked, formDivCnt) {
-	var checkRegistLabelId = "#check_regist_label" + formDivCnt;
+function selectRegistFormChangeText($selectRegistFormChecked, checkRegistLabel) {
 	if($selectRegistFormChecked.prop('checked')) {
-		$(checkRegistLabelId).text("選択済");
-		$(checkRegistLabelId).css("color", "#0171bd");
+		$(checkRegistLabel).text("選択済");
+		$(checkRegistLabel).css("color", "#0171bd");
 	}
 	else {
-		$(checkRegistLabelId).text("未選択");
-		$(checkRegistLabelId).css("color", "red");
+		$(checkRegistLabel).text("未選択");
+		$(checkRegistLabel).css("color", "red");
 	}
 }
 
@@ -165,17 +178,49 @@ function setDatepicker($purchaseDate) {
 	$purchaseDate.datepicker();
 }
 
+//
+function imageTooltipAppend(imageFile, $imageText) {
+	if($(imageFile).prop('files')[0]) {
+		$imageText.tooltip({disabled: false});
+		var file = $(imageFile).prop('files')[0];
+		var fr = new FileReader();
+		fr.onload = function() {
+			$imageText.tooltip({
+				items: 'input',
+				content: function() {
+					var tooltipText = '<img src="' + fr.result + '" width="100%"/>'
+					return tooltipText;
+				}
+			});
+		}
+		fr.readAsDataURL(file);
+	} else {
+		$imageText.tooltip({disabled: true});
+	}
+}
+
 // ファイルが選択された際に発火する
-function setFileName($imageFile, $imageText) {
+function setFileName(imageFile, imageText) {
 	// ファイルが選択されている場合
-	if($($imageFile)[0].files[0]) {
-		var imageFileName = $($imageFile)[0].files[0].name;
-		$($imageText).val(imageFileName);
+	if($(imageFile)[0].files[0]) {
+		var imageFileName = $(imageFile)[0].files[0].name;
+		$(imageText).val(imageFileName);
 	} 
 	// ファイルが選択されていない場合
 	else {
-		$($imageText).val("");
+		$(imageText).val("");
 	}
+}
+
+// フォームが選択されているか判定
+async function isFormChecked($selectRegistForms) {
+	var checkedFlg = false;
+	$selectRegistForms.each((i, selectRegistForm) => {
+		if(i != 0 && $(selectRegistForm).prop("checked")) {
+			checkedFlg = true;
+		}
+	});
+	return checkedFlg;
 }
 
 function isConfirm(dialogMsg) {
@@ -184,4 +229,32 @@ function isConfirm(dialogMsg) {
 	} else {
 		return false;
 	}
+}
+
+function selectAllCheck() {
+	$(".select-regist-form").each((i, value) => {
+		if(i === 0) return true;
+		if(!$(value).prop('checked')) {
+			$(value).prop('checked', true);
+		}
+	});
+	$(".check-regist-label").each((i, value) => {
+		if(i === 0) return true;
+		$(value).text("選択済");
+		$(value).css("color", "#0171bd");
+	});
+}
+
+function clearAllCheck() {
+	$(".select-regist-form").each((i, value) => {
+		if(i === 0) return true;
+		if($(value).prop('checked')) {
+			$(value).prop('checked', false);
+		}
+	});
+	$(".check-regist-label").each((i, value) => {
+		if(i === 0) return true;
+		$(value).text("未選択");
+		$(value).css("color", "red");
+	});
 }

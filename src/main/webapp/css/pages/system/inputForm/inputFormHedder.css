@@ -149,7 +149,7 @@ label {
 	width: 100%;
 	height: 150px;
 	line-height: 150%;
-	resize: vertical;
+	resize: none;
 }
 
 .ui-datepicker-trigger {
@@ -158,6 +158,10 @@ label {
 	margin-right: 20px;
 	padding-top: 5px;
 	float: right;
+}
+
+.ui-tooltip {
+  background: white;
 }
 
 div.float-clear {
@@ -221,6 +225,24 @@ input:hover, textarea:hover, input:focus, textarea:focus {
 #delete_form_button {
 	float: left;
 	background: red; /*背景色*/
+	padding-top: 22px;
+	padding-bottom: 22px;
+	margin-top: 10px;
+	margin-left: 1%;
+}
+
+#select_all_button {
+	float: left;
+	background: #bb334f; /*背景色*/
+	padding-top: 22px;
+	padding-bottom: 22px;
+	margin-top: 10px;
+	margin-left: 1%;
+}
+
+#clear_all_button {
+	float: left;
+	background: #bb334f; /*背景色*/
 	padding-top: 22px;
 	padding-bottom: 22px;
 	margin-top: 10px;
