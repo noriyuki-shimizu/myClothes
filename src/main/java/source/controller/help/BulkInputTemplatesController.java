@@ -50,21 +50,5 @@ public class BulkInputTemplatesController {
 		
 		return "pages/clothesTopMenu";
 	}
-	
-	/**
-	 * 【画像情報一括取り込み】テンプレートダウンロード処理.
-	 * @param model
-	 * @return トップメニュー画面
-	 */
-	@RequestMapping("/ImageInfo")
-	public String ImageInfo(Model model) {
-		int processResult = bulkInputTemplatesService.imageInfoCsvDownload();
-		
-		if(processResult == -1) {
-			model.addAttribute("clothesTopMenuErrMsg", "テンプレートのダウンロード中に例外が発生しました。");
-		}
-		
-		return "pages/clothesTopMenu";
-	}
 
 }

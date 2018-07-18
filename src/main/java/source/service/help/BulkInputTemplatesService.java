@@ -101,32 +101,6 @@ public class BulkInputTemplatesService {
 	}
 	
 	/**
-	 * 画像情報一括取り込み用テンプレートのダウンロード処理実行.
-	 * @return 正常：0、異常：-1
-	 */
-	public int imageInfoCsvDownload() {
-		
-		// ccsidの取得
-		String ccsid = this.checkCcsid();
-		// 異常が検出されたら、処理を終了する
-		if(ccsid == null) {
-			return -1;
-		}
-		
-		// 出力するCSVファイルのヘッダを設定
-		String outputString = "";
-		
-		outputString += "No.,"; 
-		outputString += "画像CD,"; 
-		outputString += "画像パス,"; 
-		outputString += "\r\n"; 
-		
-		// CSVファイルを出力する
-		return this.bulkInputOutPut(ccsid, "imageInfoBulkInput.csv", outputString);
-		
-	}
-	
-	/**
 	 * CSVファイルを出力する.
 	 * @param ccsid 使用しているPCでの文字コード
 	 * @param outputString ヘッダ項目

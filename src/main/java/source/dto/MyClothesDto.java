@@ -21,8 +21,8 @@ public class MyClothesDto {
 	/**	店マスタ */
 	private MShopDto mShopDto;
 	
-	/**	画像マスタ */
-	private MImageDto mImageDto;
+	/**	画像パス */
+	private String imagePath;
 	
 	/**	金額 */
 	private BigDecimal price;
@@ -68,12 +68,12 @@ public class MyClothesDto {
 		this.mShopDto = mShopDto;
 	}
 
-	public MImageDto getmImageDto() {
-		return mImageDto;
+	public String getImagePath() {
+		return imagePath;
 	}
 
-	public void setmImageDto(MImageDto mImageDto) {
-		this.mImageDto = mImageDto;
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 
 	public BigDecimal getPrice() {

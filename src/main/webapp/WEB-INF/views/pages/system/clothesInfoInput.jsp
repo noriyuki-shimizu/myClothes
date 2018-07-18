@@ -57,7 +57,7 @@
 	
 				<p class="input-date">
 					<label class="input-title" for="purchase_date">購入日</label><br>
-					<input name="purchaseDate" type="text"
+					<input name="purchaseDate" type="text" placeholder="yyyy/MM/dd"
 						class="feedback-input" id="purchase_date" />
 					<div class="float-clear"></div>
 				</p>
