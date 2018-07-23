@@ -2,30 +2,58 @@ package source.dto;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+@Table(name = "m_shop")
 public class MShopDto {
 	
+	public MShopDto(Integer shopId) {
+		this.shopId = shopId;
+	}
+	
 	/**	ショップマスタ　主キー */
+	@Id
+	@Column(name = "shop_id")
 	private Integer shopId;
 	
 	/**	ショップCD */
+	@Column(name = "shop_cd", nullable = false, length = 10)
 	private String shopCd;
 	
 	/**	ショップ名 */
+	@Column(name = "shop_name", nullable = false, length = 30)
 	private String shopName;
 	
 	/**	郵便CD */
+	@Column(name = "postal_cd", length = 10)
 	private String postalCd;
 	
 	/**	住所 */
+	@Column(name = "address", length = 40)
 	private String address;
 	
 	/**	店URL */
+	@Column(name = "shop_url", length = 100)
 	private String shopUrl;
 	
-	/**	データ追加日 */
+	/**	データ追加日時 */
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "insert_date")
 	private Date insertDate;
 	
+	/**	データ更新日時 */
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "update_date")
+	private Date updateDate;
+	
 	/**	削除フラグ */
+	@Column(name = "delete_flg", nullable = false)
 	private Boolean deleteFlg;
 
 	public Integer getShopId() {
@@ -82,6 +110,14 @@ public class MShopDto {
 
 	public void setInsertDate(Date insertDate) {
 		this.insertDate = insertDate;
+	}
+
+	public Date getUpdateDate() {
+		return updateDate;
+	}
+
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
 	}
 
 	public Boolean getDeleteFlg() {

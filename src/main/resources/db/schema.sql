@@ -16,7 +16,7 @@ create table if not exists my_clothes (
 	brand_id int NOT NULL UNIQUE,        -- ブランドID
 	genre_id int NOT NULL UNIQUE,        -- ジャンルID
 	shop_id int NOT NULL UNIQUE,         -- 店ID
-	image_pass text NOT NULL,            -- 画像パス 
+	image_path text NOT NULL,            -- 画像パス 
 	price money,                         -- 金額
 	purchase_date date,                  -- 購入日
 	details text,                        -- 備考

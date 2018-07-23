@@ -19,7 +19,7 @@ public class MyClothesFactory extends Factory<Long, MyClothesDto>{
 	protected MyClothesDto createObj(Long ownerId) {
 		MyClothesDto myClothesDto = this.pool.get(ownerId);
 		if(myClothesDto == null) {
-			myClothesDto = new MyClothesDto(Long.valueOf(ownerId));
+			myClothesDto = new MyClothesDto(ownerId);
 			this.pool.put(ownerId, myClothesDto);
 		}
 		return myClothesDto;

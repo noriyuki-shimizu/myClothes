@@ -9,26 +9,31 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+/**
+ * ブランドマスタDto.
+ * @author Noriyuki-Shimizu
+ *
+ */
 @Entity
-@Table(name = "m_genre")
-public class MGenreDto {
+@Table(name = "m_brand")
+public class MBrandDto {
 	
-	public MGenreDto(Integer genreId) {
-		this.genreId = genreId;
+	public MBrandDto(Integer brandId) {
+		this.brandId = brandId;
 	}
 	
-	/**	ジャンルマスタ　主キー */
+	/**	主キー */
 	@Id
-	@Column(name = "genre_id")
-	private Integer genreId;
+	@Column(name = "brand_id")
+	private Integer brandId;
 	
-	/**	ジャンルCD */
-	@Column(name = "genre_cd", nullable = false, length = 15)
-	private String genreCd;
+	/**	ブランドCD */
+	@Column(name = "brand_cd", nullable = false, length = 50)
+	private String brandCd;
 	
-	/**	ジャンル名 */
-	@Column(name = "genre_name", nullable = false, length = 20)
-	private String genreName;
+	/**	ブランド名称 */
+	@Column(name = "brand_name", nullable = false, length = 50)
+	private String brandName;
 	
 	/**	データ追加日時 */
 	@Temporal(TemporalType.TIMESTAMP)
@@ -40,32 +45,32 @@ public class MGenreDto {
 	@Column(name = "update_date")
 	private Date updateDate;
 	
-	/**	削除フラグ */
-	@Column(name = "delete_flg", nullable = false)
+	/**	論理削除フラグ */
+	@Column(name = "delete_flg")
 	private Boolean deleteFlg;
 
-	public Integer getGenreId() {
-		return genreId;
+	public Integer getBrandId() {
+		return brandId;
 	}
 
-	public void setGenreId(Integer genreId) {
-		this.genreId = genreId;
+	public void setBrandId(Integer brandId) {
+		this.brandId = brandId;
 	}
 
-	public String getGenreCd() {
-		return genreCd;
+	public String getBrandCd() {
+		return brandCd;
 	}
 
-	public void setGenreCd(String genreCd) {
-		this.genreCd = genreCd;
+	public void setBrandCd(String brandCd) {
+		this.brandCd = brandCd;
 	}
 
-	public String getGenreName() {
-		return genreName;
+	public String getBrandName() {
+		return brandName;
 	}
 
-	public void setGenreName(String genreName) {
-		this.genreName = genreName;
+	public void setBrandName(String brandName) {
+		this.brandName = brandName;
 	}
 
 	public Date getInsertDate() {
@@ -91,5 +96,5 @@ public class MGenreDto {
 	public void setDeleteFlg(Boolean deleteFlg) {
 		this.deleteFlg = deleteFlg;
 	}
-
+	
 }
