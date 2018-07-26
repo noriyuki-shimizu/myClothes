@@ -1,15 +1,13 @@
 package source.dto;
 
-import java.sql.Date;
+import java.util.Calendar;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Entity
 @Table(name = "m_genre")
 public class MGenreDto {
 	
@@ -33,12 +31,12 @@ public class MGenreDto {
 	/**	データ追加日時 */
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "insert_date")
-	private Date insertDate;
+	private Calendar insertDate;
 	
 	/**	データ更新日時 */
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "update_date")
-	private Date updateDate;
+	private Calendar updateDate;
 	
 	/**	削除フラグ */
 	@Column(name = "delete_flg", nullable = false)
@@ -68,19 +66,19 @@ public class MGenreDto {
 		this.genreName = genreName;
 	}
 
-	public Date getInsertDate() {
+	public Calendar getInsertDate() {
 		return insertDate;
 	}
 
-	public void setInsertDate(Date insertDate) {
+	public void setInsertDate(Calendar insertDate) {
 		this.insertDate = insertDate;
 	}
 
-	public Date getUpdateDate() {
+	public Calendar getUpdateDate() {
 		return updateDate;
 	}
 
-	public void setUpdateDate(Date updateDate) {
+	public void setUpdateDate(Calendar updateDate) {
 		this.updateDate = updateDate;
 	}
 

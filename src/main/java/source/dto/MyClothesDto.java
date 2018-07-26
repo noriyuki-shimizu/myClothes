@@ -1,16 +1,14 @@
 package source.dto;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.Calendar;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Entity
 @Table(name = "my_clothes")
 public class MyClothesDto {
 	
@@ -44,7 +42,7 @@ public class MyClothesDto {
 	/**	購入日 */
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "purchase_date")
-	private Date purchaseDate;
+	private Calendar purchaseDate;
 	
 	/**	詳細 */
 	@Column(name = "details")
@@ -53,12 +51,12 @@ public class MyClothesDto {
 	/**	データ追加日時 */
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "insert_date")
-	private Date insertDate;
+	private Calendar insertDate;
 	
 	/**	データ更新日時 */
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "update_date")
-	private Date updateDate;
+	private Calendar updateDate;
 	
 	/**	論理削除フラグ */
 	@Column(name = "delete_flg", nullable = false)
@@ -112,11 +110,11 @@ public class MyClothesDto {
 		this.price = price;
 	}
 
-	public Date getPurchaseDate() {
+	public Calendar getPurchaseDate() {
 		return purchaseDate;
 	}
 
-	public void setPurchaseDate(Date purchaseDate) {
+	public void setPurchaseDate(Calendar purchaseDate) {
 		this.purchaseDate = purchaseDate;
 	}
 
@@ -128,19 +126,19 @@ public class MyClothesDto {
 		this.details = details;
 	}
 
-	public Date getInsertDate() {
+	public Calendar getInsertDate() {
 		return insertDate;
 	}
 
-	public void setInsertDate(Date insertDate) {
+	public void setInsertDate(Calendar insertDate) {
 		this.insertDate = insertDate;
 	}
 
-	public Date getUpdateDate() {
+	public Calendar getUpdateDate() {
 		return updateDate;
 	}
 
-	public void setUpdateDate(Date updateDate) {
+	public void setUpdateDate(Calendar updateDate) {
 		this.updateDate = updateDate;
 	}
 
