@@ -10,6 +10,7 @@
 	<%@ include file="../../header/header.jsp" %>
 	
 	<h1 class="pageTitle">トータル情報</h1>
+	<p id="inline"></p>
 
 
 </body>

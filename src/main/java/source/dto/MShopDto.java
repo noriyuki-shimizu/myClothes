@@ -7,6 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * お店マスタDto.
+ * @author Noriyuki-Shimizu
+ *
+ */
 @Entity
 @Table(name = "m_shop")
 public class MShopDto {

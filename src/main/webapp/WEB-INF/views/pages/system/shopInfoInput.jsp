@@ -10,6 +10,7 @@
 	<%@ include file="../../header/header.jsp" %>
 	
 	<h1 class="pageTitle">お店情報入力</h1>
+	<p id="inline"></p>
 	
 	<div id="form_main">
 		<div id="form_div_template">

@@ -7,6 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * ジャンルマスタDto.
+ * @author Noriyuki-Shimizu
+ *
+ */
 @Entity
 @Table(name = "m_genre")
 public class MGenreDto {
