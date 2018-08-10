@@ -46,6 +46,7 @@
 				</li>
 				<li><a href="${pageContext.request.contextPath}/ShopInfoBulkInput/">お店情報一括取り込み</a></li>
 				<li><a href="${pageContext.request.contextPath}/ShopInfoInput/">お店情報入力</a></li>
+				<li><a href="${pageContext.request.contextPath}/BrandInfoMaintenance/">ブランド情報メンテナンス</a></li>
 				<li><a href="${pageContext.request.contextPath}/GenreInfoMaintenance/">ジャンル情報メンテナンス</a></li>
 			</ul>
 		</li>
