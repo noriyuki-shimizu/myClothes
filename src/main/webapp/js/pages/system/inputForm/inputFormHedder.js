@@ -70,6 +70,19 @@ function formAppend() {
 	$cloneFormDiv.find("#image_file").attr("id", "image_file" + formDivCnt)
 	
 	$("#form_main").append($cloneFormDiv);
+	
+	// 新しく追加されたフォームにフォーカスを合わせる
+	var parentForm = $("#form_div" + formDivCnt).find(".form");
+	// フォーカスを合わせる最初の要素取得
+	var nextFromOnFocus = $(parentForm).find("p")[0];
+	nextFromOnFocus = $(nextFromOnFocus).children()[2];
+	// フォーカスを合わせる最後の要素取得
+	var lastElementForm = $(parentForm).find("p")[$(parentForm).find("p").length - 1];
+	lastElementForm = $(lastElementForm).children()[2];
+	// フォーカスを合わせる
+	$(lastElementForm).focus();
+	$(lastElementForm).blur();
+	$(nextFromOnFocus).focus();
 
 	// 登録フォームのチェックボックスが変更時のイベント
 	$("#select_regist_form" + formDivCnt).on("change", () => {
