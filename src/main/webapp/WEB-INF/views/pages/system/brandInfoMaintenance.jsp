@@ -11,7 +11,12 @@
 	
 	<h1 class="pageTitle">ブランド情報メンテナンス</h1>
 	<p id="inline"></p>
-
+	
+	<div id="viewGrid">
+		<table id="brandInfoGrid"></table>
+		<div id="pager1"></div>
+	</div>
 
 </body>
+<script src="${pageContext.request.contextPath}/js/pages/system/brandInfoMaintenance.js"></script>
 </html>

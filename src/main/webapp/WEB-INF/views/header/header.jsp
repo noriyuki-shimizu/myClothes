@@ -10,13 +10,18 @@
 <meta charset="UTF-8">
 
 <link href="${pageContext.request.contextPath}/css/header/header.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/common/jquery-ui/jquery-ui-1.12.1.custom/jquery-ui.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/common/jquery-ui/jquery-ui.min.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/css/common/smartmenus/sm-core-css.css" rel="stylesheet" type="text/css" />
 <link href="${pageContext.request.contextPath}/css/common/smartmenus/sm-blue.css" rel="stylesheet" type="text/css" />
-<script src="${pageContext.request.contextPath}/common/jquery/jquery-1.11.0.min.js"></script>
-<script src="${pageContext.request.contextPath}/common/jquery-ui/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+<link href="${pageContext.request.contextPath}/css/common/jqGrid/ui.jqgrid.css" rel="stylesheet" type="text/css" />
+<script src="${pageContext.request.contextPath}/js/common/jquery/jquery-1.11.0.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/common/jquery-ui/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/common/jqGrid/i18n/grid.locale-ja.js"></script>
+<script src="${pageContext.request.contextPath}/js/common/jqGrid/jquery.jqGrid.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/common/smartmenus/jquerySmartmenus.js"></script>
 <script src="${pageContext.request.contextPath}/js/header/header.js"></script>
+<script src="${pageContext.request.contextPath}/js/common/jquery/prot.ajax.js"></script>
+<script src="${pageContext.request.contextPath}/js/common/jqGrid/prot.jqGrid.js"></script>
 </head>
 
 <div class="header">

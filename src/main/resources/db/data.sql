@@ -1,51 +1,31 @@
 -- ブランドマスタのデフォルト値
-INSERT INTO m_brand(brand_cd, brand_name, delete_flg)
-VALUES ('bukht', 'ブフト', true);
-INSERT INTO m_brand(brand_cd, brand_name, delete_flg)
-VALUES ('NEON SIGN', 'ネオンサイン', true);
-INSERT INTO m_brand(brand_cd, brand_name, delete_flg)
-VALUES ('MIN', 'マイン', true);
-INSERT INTO m_brand(brand_cd, brand_name, delete_flg)
-VALUES ('Yohji Yamamoto', 'ヨウジヤマモト', true);
-INSERT INTO m_brand(brand_cd, brand_name, delete_flg)
-VALUES ('AURALEE', 'オーラリー', true);
-INSERT INTO m_brand(brand_cd, brand_name, delete_flg)
-VALUES ('The Letters', 'ザレターズ', true);
-INSERT INTO m_brand(brand_cd, brand_name, delete_flg)
-VALUES ('NuGgEts', 'NuGgEts', true);
-INSERT INTO m_brand(brand_cd, brand_name, delete_flg)
-VALUES ('Old Park', 'オルドパーク', true);
-INSERT INTO m_brand(brand_cd, brand_name, delete_flg)
-VALUES ('69', '69', true);
-INSERT INTO m_brand(brand_cd, brand_name, delete_flg)
-VALUES ('TTT_MSW', 'TTT_MSW', true);
-INSERT INTO m_brand(brand_cd, brand_name, delete_flg)
-VALUES ('Fil Melange', 'フィルメランジェ', true);
-INSERT INTO m_brand(brand_cd, brand_name, delete_flg)
-VALUES ('crepuscule', 'クレプスキュ―ル', true);
-INSERT INTO m_brand(brand_cd, brand_name, delete_flg)
-VALUES ('PHINGERIN', 'フィンガリン', true);
+INSERT INTO m_brand(brand_cd, brand_name, country, details)
+VALUES 
+('bukht', 'ブフト', '日本', 'ブフト(bukht)は、2012年春夏シーズンよりスタートした国内ファッションブランドです。デザイナーは、橋本哲也。ブランド名は、中東で良質なラクダの意味を指し、人々の暮らしの中で非常に重宝される存在です。'),
+('NEON SIGN', 'ネオンサイン', '日本', '2009年、デザイナーの林飛鳥氏が設立。この時点では、メンズとユニセックスのみの展開であった。2017年に、メンズ、レディース、ユニセックスの3つのラインでの展開を開始。'),
+('MIN', 'マイン', '日本', '代官山のセレクトショップ「O（オー）代官山」のディレクター吉田拓が、新ブランド「MIN（マイン）」を立ち上げた。コンセプトは「現代衣類の追求と探求」。あえてコレクション形式では展開せず、一点一点のアイテムに注力して新作を発表していくという。'),
+('Yohji Yamamoto', 'ヨウジヤマモト', '日本', 'ヨウジヤマモトは、デザイナー山本耀司によって設立されたブランドです。1972年、既製服の部門として株式会社Y’s（ワイズ）を設立し、1976年には青山のベルコモンズの地下に初の直営店をオープンさせました。当時の隣のショップはコムデギャルソンだったそうです。そして、1977年には東京コレクションにデビュー、そして1981年にはパリのプレタポルテコレクション、翌1982年にはニューヨークコレクションにもデビューし、同時にYohji Yamamotoをスタートさせました。「プレタポルテ」とは、フランス語で「高級既製服」を意味します。'),
+('AURALEE', 'オーラリー', '日本', 'デザイナー、岩井良太が、2015年春夏コレクションよりスタート。ブランドのコンセプトは、「上質で洗練された洋服」。そのコンセプト通り、生地は世界中から厳選し、デザイナー自身が本当に良いと思える素材を追求しています。時代の流行などもしっかり捉え、オーラリーが考える時代の気分も落とし込んだ上質な洋服は、ファッションのプロを中心に大きな支持を集めています。'),
+('The Letters', 'ザレターズ', '日本', 'セレクトショップや都内某ブランドで約10年間に渡って洋服を学んだ向田雄一が、2012年春夏シーズンからThe Lettersをスタートさせる。レターズ(The Letters)は日本のメンズファッションブランド。2012年春夏コレクションでブランドデビュー。肌触りや、年月を経るほどに深みをます繊細なニュアンスを創り出すための素材づくり、仕立てなど洋服の本質的に重点を置きオーセンティックなウェアを展開。'),
+('NuGgEts', 'NuGgEts', '日本', '「ナゲッツ(NuGgETS)」は日本のファッションブランド。小法師隆平(Ryuhei Koboshi)が2010-11A/Wシーズンにブランドをスタートする。ブランド名のNuGgETSは、1972年に演奏家であるパティスミスグループ・ギタリストのレニーケイが選曲したコンピレーションアルバム”NUGGETS”から引用。意味は“寄せ集め”や“金塊”など。'),
+('Old Park', 'オルドパーク', '日本', 'アメリカンカルチャーを愛してやまないデザイナー中村仁紀氏の手掛けるブランド。Old park は2012年秋冬から始動しました。デッドストックの生地やヴィンテージウェアの持つ古着特有の経年変化によって生まれるアジやヨレ感を、再構築することで独特な洋服作りを展開するリプロダクトブランドです。'),
+('69', '69', 'アメリカ・ロサンゼルス', '『69』はありとあらゆる人のためのブランド。デザイナーという"神様"のような存在はいらないし、着る人が主役なのでデザイナーの顔や個性を出す必要はない。'),
+('TTT_MSW', 'TTT_MSW', '日本', '日常の中で普通に着れるモダンでストリートな洋服っていうのを提案しています。'),
+('Fil Melange', 'フィルメランジェ', '日本', '2007年、ブランド「フィルメランジェ」スタート。フィルメランジェ(FilMelange)は日本のカットソーを中心に展開するブランド。「わた」から「糸」「生地」「縫製」に至るまで自社開発を行っており、『最高峰のカットソー』を作り続けることがブランドコンセプト。'),
+('crepuscule', 'クレプスキュ―ル', '日本', 'クレプスキュール(crépuscule)とは、2012年春夏シーズンよりスタートした国内ニットブランドです。男女２人のデザイナーにより展開されており、数々の国内ブランドのニットを手掛けてきた実力者です。ニット専門だからこそ、上質な素材やディティール、色味など様々な要素に強くこだわった長く愛用できる飽きのこないデザインがクレプスキュールの魅力です。'),
+('PHINGERIN', 'フィンガリン', '日本', 'フィンガリンとは、デザイナー小林資幸が2008年にスタートした日本のメンズブランドです。ブランドコンセプトは“RELAX, LIGHT and MODERN”。カジュアルでリラックスしたウェアを展開しています。デザイナーの小林資幸は、広島県出身。会社員生活を経て、文化服装学院へ入学。2007年に岡本裕治氏と共にブランド「Cidermouse posse」名義で一年間活動した後、「フィンガリン」を立ち上げました。');
 
 -- ジャンルマスタのデフォルト値
-INSERT INTO m_genre(genre_cd, genre_name, delete_flg)
-VALUES ('tops', 'トップス', true);
-INSERT INTO m_genre(genre_cd, genre_name, delete_flg)
-VALUES ('tee', 'ティー', true);
-INSERT INTO m_genre(genre_cd, genre_name, delete_flg)
-VALUES ('shirt', 'シャツ', true);
-INSERT INTO m_genre(genre_cd, genre_name, delete_flg)
-VALUES ('W-outer', 'アウター（冬）', true);
-INSERT INTO m_genre(genre_cd, genre_name, delete_flg)
-VALUES ('A-outer', 'アウター（秋）', true);
-INSERT INTO m_genre(genre_cd, genre_name, delete_flg)
-VALUES ('pants', 'パンツ', true);
-INSERT INTO m_genre(genre_cd, genre_name, delete_flg)
-VALUES ('shoes', 'シューズ', true);
-INSERT INTO m_genre(genre_cd, genre_name, delete_flg)
-VALUES ('other', 'その他', true);
-INSERT INTO m_genre(genre_cd, genre_name, delete_flg)
-VALUES ('accessories', 'アクセサリー', true);
-INSERT INTO m_genre(genre_cd, genre_name, delete_flg)
-VALUES ('hat', 'ハット（帽子）', true);
-INSERT INTO m_genre(genre_cd, genre_name, delete_flg)
-VALUES ('bag', 'バッグ', true);
+INSERT INTO m_genre(genre_cd, genre_name)
+VALUES 
+('tops', 'トップス'),
+('tee', 'ティー'),
+('shirt', 'シャツ'),
+('W-outer', 'アウター（冬）'),
+('A-outer', 'アウター（秋）'),
+('pants', 'パンツ'),
+('shoes', 'シューズ'),
+('other', 'その他'),
+('accessories', 'アクセサリー'),
+('hat', 'ハット（帽子）'),
+('bag', 'バッグ');

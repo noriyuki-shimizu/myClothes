@@ -12,17 +12,17 @@ drop table if exists my_clothes;
 
 -- 私の服
 create table if not exists my_clothes (
-	my_clothes_id bigserial PRIMARY KEY, -- 主キー
-	brand_id int NOT NULL UNIQUE,        -- ブランドID
-	genre_id int NOT NULL UNIQUE,        -- ジャンルID
-	shop_id int NOT NULL UNIQUE,         -- 店ID
-	image_path text NOT NULL,            -- 画像パス 
-	price int,                         -- 金額
-	purchase_date date,                  -- 購入日
-	details text,                        -- 備考
-	insert_date date,                    -- 挿入日時
-	update_date date,                    -- 更新日時
-	delete_flg boolean NOT NULL          -- 削除フラグ
+	my_clothes_id bigserial PRIMARY KEY,         -- 主キー
+	brand_id int NOT NULL UNIQUE,                -- ブランドID
+	genre_id int NOT NULL UNIQUE,                -- ジャンルID
+	shop_id int NOT NULL UNIQUE,                 -- 店ID
+	image_path text NOT NULL,                    -- 画像パス 
+	price int,                                   -- 金額
+	purchase_date date,                          -- 購入日
+	details text,                                -- 備考
+	insert_date date,                            -- 挿入日時
+	update_date date,                            -- 更新日時
+	delete_flg boolean NOT NULL DEFAULT false     -- 削除フラグ
 );
 
 -- ブランドマスタ
@@ -30,9 +30,11 @@ create table if not exists m_brand (
 	brand_id serial PRIMARY KEY,
 	brand_cd varchar(50) NOT NULL UNIQUE,
 	brand_name varchar(50) NOT NULL,
+	country varchar(20),
+	details text,
 	insert_date date,
 	update_date date,
-	delete_flg boolean NOT NULL
+	delete_flg boolean NOT NULL DEFAULT false
 );
 
 -- ジャンルマスタ
@@ -42,7 +44,7 @@ create table if not exists m_genre (
 	genre_name varchar(20) NOT NULL,
 	insert_date date,
 	update_date date,
-	delete_flg boolean NOT NULL
+	delete_flg boolean NOT NULL DEFAULT false
 );
 
 -- 店マスタ
@@ -55,7 +57,7 @@ create table if not exists m_shop (
 	shop_url varchar(100),              -- ショップURL
 	insert_date date,
 	update_date date,
-	delete_flg boolean NOT NULL
+	delete_flg boolean NOT NULL DEFAULT false
 );
 
 -- ログマスタ

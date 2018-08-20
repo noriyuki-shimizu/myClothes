@@ -15,6 +15,10 @@ var jqGrid = function() {
 	this.rowList;
 	// ヘッダーのキャプション
 	this.caption;
+	// 高さ
+	this.height;
+	// 幅
+	this.width;
 	// footerのページャ―要素のid
 	this.pager;
 }
@@ -28,10 +32,12 @@ jqGrid.prototype = {
 			this.rowNum = option.rowNum;
 			this.rowList = option.rowList;
 			this.caption = option.caption;
+			this.height = option.height;
+			this.width = option.width;
 			this.pager = option.pager;
 		},
 		
-		execute: function($grid) {
+		execute: function($grid, $gridFooter) {
 			
 			// jqGrid
 			$grid.jqGrid({
@@ -42,8 +48,8 @@ jqGrid.prototype = {
 	            rowNum : this.rowNum,       //一ページに表示する行数
 	            rowList : this.rowList,     //変更可能な1ページ当たりの行数
 	            caption : this.caption,     //ヘッダーのキャプション
-	            height : 200,               //高さ
-	            width : 500,                //幅
+	            height : this.height,       //高さ
+	            width : this.width,         //幅
 	            'loadError' : function (xhr, status, error){
                     alert(error);
                 },
@@ -52,11 +58,15 @@ jqGrid.prototype = {
 	            pager : this.pager,         //footerのページャー要素のid
 	            regional : 'ja',            //日本語
 	            shrinkToFit : true,         //画面サイズに依存せず固定の大きさを表示する設定
-	            viewrecords: true           //footerの右下に表示する。
+	            viewrecords: true,           //footerの右下に表示する。
+	            loadComplete : function () {
+	            	// div_dummy 枠の横幅を取得してグリッドに設定する
+	                $($grid).jqGrid('setGridWidth', $("#viewGrid").width(), true);
+	            }
 			});
 			
 			//検索追加
-	        $grid.jqGrid('navGrid','#pager1',{
+	        $grid.jqGrid('navGrid', $gridFooter,{
 	            add:false,   // 追加
 	            edit:false,  // 編集
 	            del:false,   // 削除
@@ -73,5 +83,12 @@ jqGrid.prototype = {
 	            defaultSearch:'cn'     //一致条件を入れる。
 	                                   //選択肢['eq','ne','lt','le','gt','ge','bw','bn','in','ni','ew','en','cn','nc']
 	        });
+		},
+		
+		resize: function($grid) {
+			$(window).bind('resize', function() {
+				$grid.setGridWidth($(window).width() * 0.9)
+				.setGridHeight($(window).height() * 0.9);
+			}).trigger('resize');
 		}
 }

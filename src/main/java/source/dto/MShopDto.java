@@ -15,6 +15,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "m_shop")
 public class MShopDto {
+
+	public MShopDto() {}
 	
 	public MShopDto(Integer shopId) {
 		this.shopId = shopId;
@@ -56,5 +58,77 @@ public class MShopDto {
 	/**	削除フラグ */
 	@Column(name = "delete_flg")
 	private Boolean deleteFlg;
+
+	public Integer getShopId() {
+		return shopId;
+	}
+
+	public void setShopId(Integer shopId) {
+		this.shopId = shopId;
+	}
+
+	public String getShopCd() {
+		return shopCd;
+	}
+
+	public void setShopCd(String shopCd) {
+		this.shopCd = shopCd;
+	}
+
+	public String getShopName() {
+		return shopName;
+	}
+
+	public void setShopName(String shopName) {
+		this.shopName = shopName;
+	}
+
+	public String getPostalCd() {
+		return postalCd;
+	}
+
+	public void setPostalCd(String postalCd) {
+		this.postalCd = postalCd;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getShopUrl() {
+		return shopUrl;
+	}
+
+	public void setShopUrl(String shopUrl) {
+		this.shopUrl = shopUrl;
+	}
+
+	public Timestamp getInsertDate() {
+		return insertDate;
+	}
+
+	public void setInsertDate(Timestamp insertDate) {
+		this.insertDate = insertDate;
+	}
+
+	public Timestamp getUpdateDate() {
+		return updateDate;
+	}
+
+	public void setUpdateDate(Timestamp updateDate) {
+		this.updateDate = updateDate;
+	}
+
+	public Boolean getDeleteFlg() {
+		return deleteFlg;
+	}
+
+	public void setDeleteFlg(Boolean deleteFlg) {
+		this.deleteFlg = deleteFlg;
+	}
 
 }

@@ -33,13 +33,13 @@ ajax.prototype = {
 	
 	// 非同期通信の実行
 	execute: function() {
-		return new Promise(function(resolve, reject) {
+		return new Promise((resolve, reject) => {
 			$.ajax({
 				type:       this.type,
 				url:        this.url,
 				data:       this.data,
 				dataType:   this.dataType,
-				beforeSend: this.beforeSend
+				beforeSend: this.beforeSend,
 				statusCode: {
 					404: function() {
 						console.err("404 Not Found.");
@@ -47,11 +47,11 @@ ajax.prototype = {
 				}
 			})
 			// 通信が成功した際に走るメソッド
-			.done(function( response, textStatus, jqXHR ) {
+			.done((response, textStatus, jqXHR) => {
 				resolve(response);
 			})
 			// 通信が失敗した際に走るメソッド
-			.fail(function( jqXHR, textStatus, errorThrown ) {
+			.fail((jqXHR, textStatus, errorThrown) => {
 				reject(errorThrown);
 			});
 		});

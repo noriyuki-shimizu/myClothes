@@ -16,6 +16,8 @@ import javax.persistence.Table;
 @Table(name = "m_genre")
 public class MGenreDto {
 	
+	public MGenreDto() {}
+	
 	public MGenreDto(Integer genreId) {
 		this.genreId = genreId;
 	}
@@ -44,5 +46,53 @@ public class MGenreDto {
 	/**	削除フラグ */
 	@Column(name = "delete_flg")
 	private Boolean deleteFlg;
+
+	public Integer getGenreId() {
+		return genreId;
+	}
+
+	public void setGenreId(Integer genreId) {
+		this.genreId = genreId;
+	}
+
+	public String getGenreCd() {
+		return genreCd;
+	}
+
+	public void setGenreCd(String genreCd) {
+		this.genreCd = genreCd;
+	}
+
+	public String getGenreName() {
+		return genreName;
+	}
+
+	public void setGenreName(String genreName) {
+		this.genreName = genreName;
+	}
+
+	public Timestamp getInsertDate() {
+		return insertDate;
+	}
+
+	public void setInsertDate(Timestamp insertDate) {
+		this.insertDate = insertDate;
+	}
+
+	public Timestamp getUpdateDate() {
+		return updateDate;
+	}
+
+	public void setUpdateDate(Timestamp updateDate) {
+		this.updateDate = updateDate;
+	}
+
+	public Boolean getDeleteFlg() {
+		return deleteFlg;
+	}
+
+	public void setDeleteFlg(Boolean deleteFlg) {
+		this.deleteFlg = deleteFlg;
+	}
 
 }
