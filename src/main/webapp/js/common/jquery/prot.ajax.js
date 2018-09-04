@@ -23,12 +23,8 @@ ajax.prototype = {
 		this.url        = option.url;
 		this.data       = option.data;
 		this.dataType   = option.dataType;
-		
-		if(option.beforeSend) {
-			this.beforeSend = option.beforeSend;
-		} else {
-			this.beforeSend = function(){};
-		}
+		this.beforeSend = option.beforeSend ? option.beforeSend : () => {};
+		return this;
 	},
 	
 	// 非同期通信の実行
@@ -57,3 +53,5 @@ ajax.prototype = {
 		});
 	}
 }
+
+var mcpAjax = new ajax();

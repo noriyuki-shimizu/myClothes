@@ -9,9 +9,6 @@
 
 	<%@ include file="../../header/header.jsp" %>
 	
-	<h1 class="pageTitle">お店情報入力</h1>
-	<p id="inline"></p>
-	
 	<div id="form_main">
 		<div id="form_div_template">
 
@@ -75,7 +72,8 @@
 	
 </body>
 
-<link type="text/css" media="screen" href="${pageContext.request.contextPath}/css/pages/system/inputForm/inputFormHedder.css" rel="stylesheet" />
-<script src="${pageContext.request.contextPath}/js/pages/system/inputForm/inputFormHedder.js"></script>
+<link type="text/css" media="screen" href="${pageContext.request.contextPath}/css/common/inputForm/inputFormHedder.css" rel="stylesheet" />
+<script src="${pageContext.request.contextPath}/js/common/inputForm/inputFormHedder.js"></script>
+<script src="${pageContext.request.contextPath}/js/pages/system/shopInfoInput.js"></script>
 
 </html>

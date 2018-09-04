@@ -12,8 +12,6 @@
 
 	<div id="clothesTopMenuErrMsg"><c:out value="${clothesTopMenuErrMsg}"/></div>
 	
-	<h1 class="pageTitle">トップメニュー</h1>
-	
 	<div class="photo-show">
 	    <img id="image_1" src="${pageContext.request.contextPath}/img/pages/clothesTopMenu/bukht_1.jpg">
 	    <img id="image_2" src="${pageContext.request.contextPath}/img/pages/clothesTopMenu/neonsign_1.jpg">

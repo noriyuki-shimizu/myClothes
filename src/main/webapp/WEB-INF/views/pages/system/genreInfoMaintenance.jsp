@@ -8,10 +8,6 @@
 <body>
 
 	<%@ include file="../../header/header.jsp" %>
-	
-	<h1 class="pageTitle">ジャンル情報メンテナンス</h1>
-	<p id="inline"></p>
-
 
 </body>
 </html>

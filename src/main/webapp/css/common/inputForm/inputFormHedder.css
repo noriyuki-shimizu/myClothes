@@ -6,6 +6,12 @@
 	margin-bottom: 150px;
 }
 
+#search_form_main {
+	width: 100%;
+	padding-top: 0px;
+	margin-bottom: 50px;
+}
+
 #form_div_template {
 	display: none;
 }
@@ -16,8 +22,18 @@
 	padding-right: 20px;
 	padding-top: 20px;
 	padding-bottom: 50px;
-	width: 90%;
-	margin: 1% 1% 1% 2%;
+	margin: 2% 3%;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+}
+
+.search-form-div {
+	background-color: #dddcdc;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 20px;
+	padding-bottom: 50px;
+	margin: 2% 3%;
 	-moz-border-radius: 7px;
 	-webkit-border-radius: 7px;
 }

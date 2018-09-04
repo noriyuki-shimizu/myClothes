@@ -8,10 +8,6 @@
 <body>
 
 	<%@ include file="../../header/header.jsp" %>
-	
-	<h1 class="pageTitle">服情報い一括取り込み</h1>
-	<p id="inline"></p>
-
 
 </body>
 </html>

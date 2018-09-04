@@ -23,10 +23,52 @@ header {
 .pageTitle {
 	margin-left: 10px;
 	margin-bottom: 0;
+	margin-top: 10px;
 	font-family: 'New Gulim';
 }
 
 #inline {
 	margin-top: 0;
+	margin-bottom: 0;
 	border-bottom: solid 5px black;
+}
+
+.close-msg-button {
+	float: right;
+	margin-right: 10px;
+	background: transparent;
+	font-size: 28px;
+	border-style: none;
+}
+
+.ui-widget-msg {
+	margin: 0px 10px;
+	border-radius: 5px;
+	border: 1px solid transparent;
+	padding: 0.3em;
+	font-size: 20px;
+}
+
+.ui-icon.ui-icon-alert, .ui-icon.ui-icon-info {
+	float: left;
+	margin-right: .3em;
+}
+
+.ui-state-error.ui-corner-all, .ui-state-highlight.ui-corner-all {
+	padding: 0 .7em;
+	-webkit-animation-name: blink;/* keyframe名 */
+	-webkit-animation-duration: 1s;/* アニメーションにかける時間 */
+	-webkit-animation-iteration-count:4;/*infiniteで無限ループ */
+	-webkit-animation-timing-function:ease-in-out;/* イーズインアウト */
+	-webkit-animation-direction: alternate;/* alternateにするとアニメーションが反復 */
+	-webkit-animation-delay: 0s; /* 実行までの待ち時間 */
+}
+
+@-webkit-keyframes blink {
+ from {
+ opacity: 1;
+ }
+ to {
+ opacity: 0;
+ }
 }

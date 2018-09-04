@@ -26,6 +26,7 @@ var jqGrid = function() {
 jqGrid.prototype = {
 		
 		setOption: function(option) {
+			// TODO: $gridとかもメンバ変数に持たせて!!
 			this.data = option.data;
 			this.colNames = option.colNames;
 			this.colModel = option.colModel;
@@ -35,6 +36,7 @@ jqGrid.prototype = {
 			this.height = option.height;
 			this.width = option.width;
 			this.pager = option.pager;
+			return this;
 		},
 		
 		execute: function($grid, $gridFooter) {
@@ -83,8 +85,11 @@ jqGrid.prototype = {
 	            defaultSearch:'cn'     //一致条件を入れる。
 	                                   //選択肢['eq','ne','lt','le','gt','ge','bw','bn','in','ni','ew','en','cn','nc']
 	        });
+	        
+	        return this;
 		},
 		
+		// グリッドのサイズを動的に変更する
 		resize: function($grid) {
 			$(window).bind('resize', function() {
 				$grid.setGridWidth($(window).width() * 0.9)
@@ -92,3 +97,5 @@ jqGrid.prototype = {
 			}).trigger('resize');
 		}
 }
+
+var mcpJqGrid = new jqGrid();

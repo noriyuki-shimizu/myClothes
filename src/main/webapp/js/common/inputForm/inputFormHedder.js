@@ -4,8 +4,16 @@
 
 $(function() {
 
-	// 初期表示：フォームを画面にアペンドする
-	formAppend();
+	/**
+	 * jQueryのイベントセット
+	 */
+	eventSet();
+	
+});
+
+function eventSet() {
+	
+	
 	
 	// フォーム追加ボタン押下時のイベント
 	$("#add_form_button").on('click', () => {
@@ -16,18 +24,33 @@ $(function() {
 	$("#delete_form_button").on('click', () => {
 		isFormChecked($(".select-regist-form")).then(resltFlg => {
 			if(!resltFlg) {
-				alert("フォームを選択してください。");
+				// エラーメッセージの表示
+				mcpMessage
+					.messageClear()
+					.viewMessage()
+					.setMessage("フォームを選択してください。")
+					.displayError();
 				return ;
 			}
-			if(isConfirm("選択されたフォームを削除します。\nよろしいですか？\n\n※入力されたフォーム内の情報も削除されてしまいます。")) {
-				formRemove($(".select-regist-form")).then(() => {
-					// フォームがすべて削除された場合
-					if($(".form-div").length === 0) {
-						// フォームを1つ追加する
-						formAppend();
-					}
-				});
+			
+			mcpMessage
+				.messageClear()
+				.closeMessage();
+			
+			var exeFunc = function() {
+				if(isConfirm("選択されたフォームを削除します。\nよろしいですか？\n\n※入力されたフォーム内の情報も削除されてしまいます。")) {
+					formRemove($(".select-regist-form")).then(() => {
+						// フォームがすべて削除された場合
+						if($(".form-div").length === 0) {
+							// フォームを1つ追加する
+							formAppend();
+						}
+					});
+				}
 			}
+			
+			timeoutExecute(exeFunc, 100);
+			
 		});
 	});
 	
@@ -39,9 +62,8 @@ $(function() {
 	// 全解除がクリックされた際のイベント
 	$("#clear_all_button").on('click', () => {
 		clearAllCheck();
-	})
-	
-});
+	});
+}
 
 // フォームをアペンドする
 function formAppend() {
@@ -270,4 +292,10 @@ function clearAllCheck() {
 		$(value).text("未選択");
 		$(value).css("color", "red");
 	});
+}
+
+function timeoutExecute(exeFunc, time) {
+	setTimeout(() => {
+		exeFunc();
+	}, time);
 }
