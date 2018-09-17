@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import source.dto.MBrandDto;
+import source.entity.MBrandEntity;
 import source.repository.myClothes.MBrandRepository;
 
 @Service
@@ -16,8 +16,8 @@ public class MBrandService {
 	@Autowired
 	private MBrandRepository mBrandRepository;
 	
-	public List<MBrandDto> findAll() {
-		List<MBrandDto> mBrandList = mBrandRepository.findAll();
+	public List<MBrandEntity> findAll() {
+		List<MBrandEntity> mBrandList = mBrandRepository.findAll();
 		mBrandList.stream().forEach(mBrand -> {
 			mBrand.setDeleteFlgStr();
 		});

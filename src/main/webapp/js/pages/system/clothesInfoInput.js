@@ -8,6 +8,8 @@ $(function() {
 	$(".pageTitle").text("服情報入力");
 	
 	// 初期表示：フォームを画面にアペンドする
-	formAppend();
+	mcpInputForm
+		.inputFormEventSet()
+		.$formAppend();
 	
 });

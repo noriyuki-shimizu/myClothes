@@ -2,7 +2,7 @@ package source.factory;
 
 import java.util.HashMap;
 
-import source.dto.MBrandDto;
+import source.entity.MBrandEntity;
 import source.factory.bsFactory.Factory;
 
 /**
@@ -10,16 +10,16 @@ import source.factory.bsFactory.Factory;
  * @author Noriyuki-Shimizu
  *
  */
-public class MBrandFactory extends Factory<Integer, MBrandDto> {
+public class MBrandFactory extends Factory<Integer, MBrandEntity> {
 
 	public MBrandFactory() {
-		this.pool = new HashMap<Integer, MBrandDto>();
+		this.pool = new HashMap<Integer, MBrandEntity>();
 	}
 	
-	protected MBrandDto createObj(Integer ownerId) {
-		MBrandDto mBrandDto = this.pool.get(ownerId);
+	protected MBrandEntity createObj(Integer ownerId) {
+		MBrandEntity mBrandDto = this.pool.get(ownerId);
 		if(mBrandDto == null) {
-			mBrandDto = new MBrandDto(ownerId);
+			mBrandDto = new MBrandEntity(ownerId);
 			this.pool.put(ownerId, mBrandDto);
 		}
 		return mBrandDto;

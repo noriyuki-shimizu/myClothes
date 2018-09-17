@@ -2,7 +2,7 @@ package source.factory;
 
 import java.util.HashMap;
 
-import source.dto.MyClothesDto;
+import source.entity.MyClothesEntity;
 import source.factory.bsFactory.Factory;
 
 /**
@@ -10,16 +10,16 @@ import source.factory.bsFactory.Factory;
  * @author Noriyuki-Shimizu
  *
  */
-public class MyClothesFactory extends Factory<Long, MyClothesDto>{
+public class MyClothesFactory extends Factory<Long, MyClothesEntity>{
 
 	public MyClothesFactory() {
-		this.pool = new HashMap<Long, MyClothesDto>();
+		this.pool = new HashMap<Long, MyClothesEntity>();
 	}
 	
-	protected MyClothesDto createObj(Long ownerId) {
-		MyClothesDto myClothesDto = this.pool.get(ownerId);
+	protected MyClothesEntity createObj(Long ownerId) {
+		MyClothesEntity myClothesDto = this.pool.get(ownerId);
 		if(myClothesDto == null) {
-			myClothesDto = new MyClothesDto(ownerId);
+			myClothesDto = new MyClothesEntity(ownerId);
 			this.pool.put(ownerId, myClothesDto);
 		}
 		return myClothesDto;

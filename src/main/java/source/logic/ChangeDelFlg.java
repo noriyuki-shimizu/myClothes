@@ -1,9 +1,9 @@
 package source.logic;
 
-import source.dto.MyClothesDto;
-import source.dto.MBrandDto;
-import source.dto.MGenreDto;
-import source.dto.MShopDto;
+import source.entity.MBrandEntity;
+import source.entity.MGenreEntity;
+import source.entity.MShopEntity;
+import source.entity.MyClothesEntity;
 import source.logic.bsLogic.ChangeFlg;
 
 /**
@@ -28,31 +28,27 @@ public class ChangeDelFlg extends ChangeFlg{
 	 * @return String(真：削除済み, 偽：未削除)
 	 */
 	public String convertDelFlgFromStr(Boolean delFlg) {
-		if(delFlg) {
-			return "削除済み";
-		} else {
-			return "未削除";
-		}
+		return (delFlg) ? "削除済み" : "未削除";
 	}
 
 	@Override
-	public String changeFlgOfMBrandDto(MBrandDto mBrandDto) {
-		return convertDelFlgFromStr(mBrandDto.getDeleteFlg());
+	public String changeFlgOfMBrandDto(MBrandEntity mBrandEntity) {
+		return convertDelFlgFromStr(mBrandEntity.getDeleteFlg());
 	}
 
 	@Override
-	public String changeFlgOfMGenreDto(MGenreDto mGenreDto) {
-		return convertDelFlgFromStr(mGenreDto.getDeleteFlg());
+	public String changeFlgOfMGenreDto(MGenreEntity mGenreEntity) {
+		return convertDelFlgFromStr(mGenreEntity.getDeleteFlg());
 	}
 
 	@Override
-	public String changeFlgOfMShopDto(MShopDto mShopDto) {
-		return convertDelFlgFromStr(mShopDto.getDeleteFlg());
+	public String changeFlgOfMShopDto(MShopEntity mShopEntity) {
+		return convertDelFlgFromStr(mShopEntity.getDeleteFlg());
 	}
 
 	@Override
-	public String changeFlgOfMyClothesDto(MyClothesDto bsMyClothesDto) {
-		return convertDelFlgFromStr(bsMyClothesDto.getDeleteFlg());
+	public String changeFlgOfMyClothesDto(MyClothesEntity bsMyClothesEntity) {
+		return convertDelFlgFromStr(bsMyClothesEntity.getDeleteFlg());
 	}
 
 }

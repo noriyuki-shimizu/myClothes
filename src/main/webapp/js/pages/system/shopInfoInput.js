@@ -8,6 +8,8 @@ $(function() {
 	$(".pageTitle").text("お店情報入力");
 	
 	// 初期表示：フォームを画面にアペンドする
-	formAppend();
+	mcpInputForm
+		.inputFormEventSet()
+		.$formAppend();
 	
 });

@@ -7,6 +7,8 @@ $(function() {
 	// ページタイトルの設定
 	$(".pageTitle").text("ブランド情報メンテナンス");
 	
+	mcpInputForm.searchFormEventSet();
+	
 	getBrandInfo().then(BrandInfoList => {
 		setBrandInfoListGrid(BrandInfoList);
 	});
