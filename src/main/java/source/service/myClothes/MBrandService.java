@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import source.dto.MBrandDto;
 import source.entity.MBrandEntity;
+import source.mapper.MBrandMapper;
 import source.repository.myClothes.MBrandRepository;
 
 @Service
@@ -16,12 +18,15 @@ public class MBrandService {
 	@Autowired
 	private MBrandRepository mBrandRepository;
 	
-	public List<MBrandEntity> findAll() {
+	@Autowired
+	private MBrandMapper mBrandMapper;
+	
+	public List<MBrandDto> findAll() {
 		List<MBrandEntity> mBrandList = mBrandRepository.findAll();
-		mBrandList.stream().forEach(mBrand -> {
-			mBrand.setDeleteFlgStr();
-		});
-		return mBrandList;
+		
+		List<MBrandDto> mBrandDtoList = mBrandMapper.mappingToDtoList(mBrandList);
+
+		return mBrandDtoList;
 	}
 	
 }

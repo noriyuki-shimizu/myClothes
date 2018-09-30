@@ -1,9 +1,5 @@
 package source.logic;
 
-import source.entity.MBrandEntity;
-import source.entity.MGenreEntity;
-import source.entity.MShopEntity;
-import source.entity.MyClothesEntity;
 import source.logic.bsLogic.ChangeFlg;
 
 /**
@@ -11,44 +7,40 @@ import source.logic.bsLogic.ChangeFlg;
  * @author Noriyuki-Shimizu
  *
  */
-public class ChangeDelFlg extends ChangeFlg{
+public class ChangeDelFlg extends ChangeFlg {
 	
-	/**	本クラスのインスタンス変数 */
-	public static ChangeFlg singleton = new ChangeDelFlg();
-
-	/**シングルトンパターン
-	 * @return ChangeFlg
-	 */
-	public static ChangeFlg getInstance() {
-		return singleton;
+	private static class delFlgStat {
+		
+		static final String DEL_MSG = "削除済み";
+		
+		static final String NON_DEL_MSG = "未削除";
+	
 	}
 	
-	/**Boolean値から、Stringへ変換する.
-	 * @param Boolean delFlg
-	 * @return String(真：削除済み, 偽：未削除)
-	 */
-	public String convertDelFlgFromStr(Boolean delFlg) {
-		return (delFlg) ? "削除済み" : "未削除";
+	public ChangeDelFlg(Boolean delFlg) {
+		super(delFlg);
 	}
-
-	@Override
-	public String changeFlgOfMBrandDto(MBrandEntity mBrandEntity) {
-		return convertDelFlgFromStr(mBrandEntity.getDeleteFlg());
+	
+	public ChangeDelFlg(String delFlgStr) {
+		super(delFlgStr);
 	}
-
+	
 	@Override
-	public String changeFlgOfMGenreDto(MGenreEntity mGenreEntity) {
-		return convertDelFlgFromStr(mGenreEntity.getDeleteFlg());
+	public String changeFlgBoolToStr() {
+		if(this.flgBool == null) {
+			throw new NullPointerException();
+		}
+		
+		return (this.flgBool) ? delFlgStat.DEL_MSG : delFlgStat.NON_DEL_MSG;
 	}
-
+	
 	@Override
-	public String changeFlgOfMShopDto(MShopEntity mShopEntity) {
-		return convertDelFlgFromStr(mShopEntity.getDeleteFlg());
-	}
-
-	@Override
-	public String changeFlgOfMyClothesDto(MyClothesEntity bsMyClothesEntity) {
-		return convertDelFlgFromStr(bsMyClothesEntity.getDeleteFlg());
+	public Boolean changeFlgStrToBool() {
+		if(this.flgStr == null) {
+			throw new NullPointerException();
+		}
+		
+		return (this.flgStr.equals(delFlgStat.DEL_MSG)) ? true : false;
 	}
 
 }

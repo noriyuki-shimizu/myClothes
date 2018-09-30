@@ -2,7 +2,9 @@ package source.dto;
 
 import java.sql.Timestamp;
 
-public class MShopDto {
+import source.dto.bsDto.BaseDto;
+
+public class MShopDto extends BaseDto {
 
 	/**	ショップマスタ　主キー */
 	@SuppressWarnings("unused")

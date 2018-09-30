@@ -2,7 +2,9 @@ package source.dto;
 
 import java.sql.Timestamp;
 
-public class MGenreDto {
+import source.dto.bsDto.BaseDto;
+
+public class MGenreDto extends BaseDto {
 
 	/**	ジャンルマスタ　主キー */
 	@SuppressWarnings("unused")

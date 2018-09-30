@@ -87,4 +87,36 @@ public class MBrandEntity {
 		return details;
 	}
 
+	public void setBrandId(Integer brandId) {
+		this.brandId = brandId;
+	}
+
+	public void setBrandCd(String brandCd) {
+		this.brandCd = brandCd;
+	}
+
+	public void setBrandName(String brandName) {
+		this.brandName = brandName;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public void setDetails(String details) {
+		this.details = details;
+	}
+
+	public void setInsertDate(Timestamp insertDate) {
+		this.insertDate = insertDate;
+	}
+
+	public void setUpdateDate(Timestamp updateDate) {
+		this.updateDate = updateDate;
+	}
+
+	public void setDeleteFlg(Boolean deleteFlg) {
+		this.deleteFlg = deleteFlg;
+	}
+
 }

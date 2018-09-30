@@ -3,13 +3,12 @@ package source.dto;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
+import source.dto.bsDto.BaseDto;
 import source.entity.MBrandEntity;
 import source.entity.MGenreEntity;
 import source.entity.MShopEntity;
-import source.logic.ChangeDelFlg;
-import source.logic.bsLogic.ChangeFlg;
 
-public class MyClothesDto {
+public class MyClothesDto extends BaseDto {
 
 	/**	服情報　主キー */
 	@SuppressWarnings("unused")
@@ -130,10 +129,4 @@ public class MyClothesDto {
 		this.mShopEntity = mShopEntity;
 	}
 
-	/**	削除フラグから、削除済みか未削除を格納する */
-	public void setDeleteFlgStr() {
-		ChangeFlg changeFlg = ChangeDelFlg.getInstance();
-		this.deleteFlgStr = changeFlg.changeFlgOfMyClothesDto(this);
-	}
-	
 }

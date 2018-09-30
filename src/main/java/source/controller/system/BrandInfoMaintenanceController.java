@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import source.entity.MBrandEntity;
+import source.dto.MBrandDto;
 import source.service.myClothes.MBrandService;
 
 /**
@@ -46,7 +46,7 @@ public class BrandInfoMaintenanceController {
 	@RequestMapping(value = "/getDataList", method = RequestMethod.GET)
 	@ResponseBody
 	public String getDataList() throws JsonProcessingException {
-		List<MBrandEntity> mBrandList = mBrandService.findAll();
+		List<MBrandDto> mBrandList = mBrandService.findAll();
 		return MAPPER.writeValueAsString(mBrandList);
 	}
 

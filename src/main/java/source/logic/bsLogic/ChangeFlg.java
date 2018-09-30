@@ -1,10 +1,5 @@
 package source.logic.bsLogic;
 
-import source.entity.MBrandEntity;
-import source.entity.MGenreEntity;
-import source.entity.MShopEntity;
-import source.entity.MyClothesEntity;
-
 /**
  * 各Dtoにおけるフラグを変換する抽象クラス.
  * @author Noriyuki-Shimizu
@@ -12,28 +7,30 @@ import source.entity.MyClothesEntity;
  */
 public abstract class ChangeFlg {
 	
-	/**ブランドDtoでのフラグ系変数を変換する.
-	 * @param mBrandDto
+	protected Boolean flgBool;
+	
+	protected String flgStr;
+	
+	public ChangeFlg(Boolean flgBool) {
+		this.flgBool = flgBool;
+	}
+	
+	public ChangeFlg(String flgStr) {
+		this.flgStr = flgStr;
+	}
+	
+	/**
+	 * フラグを真偽値から文字列へ変換する.
+	 * 必ず、コンストラクタで真偽値を設定してください.
 	 * @return 変換された文字列
 	 */
-	public abstract String changeFlgOfMBrandDto(MBrandEntity mBrandEntity);
+	public abstract String changeFlgBoolToStr();
 	
-	/**ジャンルDtoでのフラグ系変数を変換する.
-	 * @param mGenreDto
-	 * @return 変換された文字列
+	/**
+	 * フラグを文字列から真偽値へ変換する.
+	 * 必ず、コンストラクタで文字列を設定してください.
+	 * @return 変換された真偽値
 	 */
-	public abstract String changeFlgOfMGenreDto(MGenreEntity mGenreEntity);
+	public abstract Boolean changeFlgStrToBool();
 	
-	/**お店Dtoでのフラグ系変数を変換する.
-	 * @param mShopDto
-	 * @return 変換された文字列
-	 */
-	public abstract String changeFlgOfMShopDto(MShopEntity mShopEntity);
-	
-	/**私の服Dtoでのフラグ系変数を変換する.
-	 * @param myClothesDto
-	 * @return String 変換された文字列
-	 */
-	public abstract String changeFlgOfMyClothesDto(MyClothesEntity bsMyClothesEntity);
-
 }
