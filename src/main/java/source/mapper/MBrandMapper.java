@@ -3,10 +3,12 @@ package source.mapper;
 import java.util.ArrayList;
 import java.util.List;
 
+import source.domain.factory.flg.ChangeDelFlgFactory;
+import source.domain.factory.flg.bs.ChangeFlgFactory;
+import source.domain.flg.ChangeDelFlg;
+import source.domain.flg.bsFlg.ChangeFlg;
 import source.dto.MBrandDto;
 import source.entity.MBrandEntity;
-import source.logic.ChangeDelFlg;
-import source.logic.bsLogic.ChangeFlg;
 import source.mapper.bsMapper.BaseMapper;
 
 public class MBrandMapper extends BaseMapper<MBrandEntity, MBrandDto> {
@@ -78,7 +80,9 @@ public class MBrandMapper extends BaseMapper<MBrandEntity, MBrandDto> {
 		this.d.setInsertDate(e.getInsertDate());
 		this.d.setUpdateDate(e.getUpdateDate());
 		
-		ChangeFlg changeFlg = new ChangeDelFlg(e.getDeleteFlg());
+		ChangeFlgFactory<Boolean> factory = new ChangeDelFlgFactory();
+		ChangeFlg changeFlg = factory.type2Create(e.getDeleteFlg());
+//		ChangeFlg changeFlg = new ChangeDelFlg(e.getDeleteFlg());
 		this.d.setDeleteFlgStr(changeFlg.changeFlgBoolToStr());
 		
 		return this.d;

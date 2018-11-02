@@ -3,6 +3,8 @@ package source.controller.system;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import source.controller.base.BaseController;
+
 /**
  * ジャンル情報メンテナンスに関するコントローラクラス.
  * @author Noriyuki-Shimizu
@@ -10,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/GenreInfoMaintenance")
-public class GenreInfoMaintenanceController {
+public class GenreInfoMaintenanceController extends BaseController{
 	
 	/**
 	 * 初期画面を表示します.

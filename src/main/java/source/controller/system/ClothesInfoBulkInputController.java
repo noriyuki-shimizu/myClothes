@@ -3,6 +3,8 @@ package source.controller.system;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import source.controller.base.BaseController;
+
 /**
  * 服情報一括取り込みに関するコントローラクラス.
  * @author Noriyuki-Shimizu
@@ -10,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/ClothesInfoBulkInput")
-public class ClothesInfoBulkInputController {
+public class ClothesInfoBulkInputController extends BaseController{
 	
 	/**
 	 * 服情報一括取り込み画面へ遷移する.

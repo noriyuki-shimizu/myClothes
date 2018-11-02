@@ -1,4 +1,4 @@
-package source.logic.bsLogic;
+package source.domain.flg.bsFlg;
 
 /**
  * 各Dtoにおけるフラグを変換する抽象クラス.

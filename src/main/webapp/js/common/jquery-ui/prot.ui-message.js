@@ -5,16 +5,27 @@
 var uiMessage = function() {
 	// メッセージ以外の要素
 	this.subMsgElement = '<span></span><input type="button" value="×" class="close-msg-button">';
+	//
+	this.$uiWidgetMsg = $('.ui-widget-msg');
+	//
+	this.$viewMessage = $(".view-message");
 	// メッセージ
-	this.message;
+	this.message = null;
 }
 
 uiMessage.prototype = {
 	
+		resetOption: function() {
+			uiMessage.call(this);
+		},
+		
 		/** 
 		 * メッセージのセット
 		 */
 		setMessage: function(message) {
+			if(typeof message !== 'string') {
+				throw new TypeError('メッセージは文字列にしてください。');
+			}
 			this.message = message;
 			return this;
 		},
@@ -23,7 +34,7 @@ uiMessage.prototype = {
 		 * メッセージ表示
 		 */
 		viewMessage: function() {
-			$(".ui-widget-msg").css("display", "");
+			this.$uiWidgetMsg.css("display", "");
 			return this;
 		},
 		
@@ -31,8 +42,8 @@ uiMessage.prototype = {
 		 * メッセージ表示箇所をクリーンする
 		 */
 		messageClear: function() {
-			$(".view-message").empty();
-			$(".view-message").append(this.subMsgElement);
+			this.$viewMessage.empty();
+			this.$viewMessage.append(this.subMsgElement);
 			return this;
 		},
 		
@@ -40,14 +51,14 @@ uiMessage.prototype = {
 		 * closeボタン押下時など、メッセージを閉じる
 		 */
 		closeMessage: async function() {
-			return $(".ui-widget-msg").css("display", "none");
+			return this.$uiWidgetMsg.css("display", "none");
 		},
 		
 		/**
 		 * エラー表示
 		 */
 		displayError: function() {
-		    var $msgBar = $(".ui-widget-msg").children();
+		    var $msgBar = this.$uiWidgetMsg.children();
 		    
 		    $msgBar
 		    	.find("p.view-message")
@@ -69,7 +80,7 @@ uiMessage.prototype = {
 		 * 警告表示
 		 */
 		displayWarning: function() {
-			var $msgBar = $(".ui-widget-msg").children();
+			var $msgBar = this.$uiWidgetMsg.children();
 		    
 		    $msgBar
 		    	.find("p.view-message")

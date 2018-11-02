@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.MimeTypeUtils;
 
-import source.common.PlatformUtils;
+import source.domain.common.PlatformUtils;
 
 /**
  * 服情報一括取り込みテンプレートのダウンロードを行うサービスクラス.

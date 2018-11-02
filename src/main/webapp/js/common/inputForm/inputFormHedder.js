@@ -3,10 +3,14 @@
  */
 
 var InputForm = function() {
-	this.formDivCount;
+	this.formDivCount = null;
 }
 
 InputForm.prototype = {
+		
+		resetOption: function() {
+			InputForm.call(this);
+		},
 		
 		setFormDivCount: function() {
 			this.formDivCount = String($(".form-div").length + 1);

@@ -3,29 +3,44 @@
  */
 
 var jqGrid = function() {
+	
+	if(!(this typeof jqGrid)) {
+		return new jqGrid();
+	} 
+	
 	// 表示したいデータ
-	this.data;
+	this.data = null;
 	// 列の表示名
-	this.colNames;
+	this.colNames = null;
 	// 列ごとの設定
-	this.colModel;
+	this.colModel = null;
 	// 1ページに表示する行数
-	this.rowNum;
+	this.rowNum = null;
 	// 変更可能な1ページあたりの行数
-	this.rowList;
+	this.rowList = null;
 	// ヘッダーのキャプション
-	this.caption;
+	this.caption = null;
 	// 高さ
-	this.height;
+	this.height = null;
 	// 幅
-	this.width;
+	this.width = null;
 	// footerのページャ―要素のid
-	this.pager;
+	this.pager = null;
 }
 
 jqGrid.prototype = {
 		
+		resetOption: function() {
+			jqGrid.call(this);
+		},
+		
 		setOption: function(option) {
+			
+			// 引数チェック
+			if(arguments.length !== 1) {
+				throw new Error('引数の数は1つです。');
+			}
+			
 			// TODO: $gridとかもメンバ変数に持たせて!!
 			this.data = option.data;
 			this.colNames = option.colNames;
@@ -39,7 +54,21 @@ jqGrid.prototype = {
 			return this;
 		},
 		
+		isParamCheck : function() {
+			// メンバ変数を取得
+			var argList = Object.keys(this);
+
+			// メンバ変数に値が設定されているか判定
+			return argList.some(arg => {
+				return this[arg] === undefined;
+			});
+		},
+		
 		execute: function($grid, $gridFooter) {
+			
+			if(this.isParamCheck()) {
+				throw new Error('全てのパラメータに値が設定されていません。');
+			}
 			
 			// jqGrid
 			$grid.jqGrid({

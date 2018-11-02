@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
+import source.controller.base.BaseController;
 import source.dto.MBrandDto;
 import source.service.myClothes.MBrandService;
 
@@ -21,10 +21,7 @@ import source.service.myClothes.MBrandService;
  */
 @Controller
 @RequestMapping("/BrandInfoMaintenance")
-public class BrandInfoMaintenanceController {
-	
-	/**	JSON型を変換する */
-	private static final ObjectMapper MAPPER = new ObjectMapper();
+public class BrandInfoMaintenanceController extends BaseController{
 	
 	@Autowired
 	private MBrandService mBrandService;

@@ -1,4 +1,4 @@
-package source.common;
+package source.domain.common;
 
 public class PlatformUtils {
 	

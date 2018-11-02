@@ -3,6 +3,8 @@ package source.controller.myClothes;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import source.controller.base.BaseController;
+
 /**
  * よく行くお店に関するコントローラクラス.
  * @author Noriyuki-Shimizu
@@ -10,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/FrequentShopList")
-public class FrequentShopListController {
+public class FrequentShopListController extends BaseController{
 
 	/**
 	 * よく行くお店のページへ遷移する.

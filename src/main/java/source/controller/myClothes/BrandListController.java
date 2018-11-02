@@ -3,6 +3,8 @@ package source.controller.myClothes;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import source.controller.base.BaseController;
+
 /**
  * ブランド一覧に関するコントローラクラス.
  * @author Noriyuki-Shimizu
@@ -10,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/BrandList")
-public class BrandListController {
+public class BrandListController extends BaseController{
 	
 	/**
 	 * ブランド一覧の初期画面へ遷移する.

@@ -1,6 +1,6 @@
-package source.logic;
+package source.domain.flg;
 
-import source.logic.bsLogic.ChangeFlg;
+import source.domain.flg.bsFlg.ChangeFlg;
 
 /**
  * 削除フラグを変換するクラス.

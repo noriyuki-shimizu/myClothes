@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import source.controller.base.BaseController;
 import source.service.help.BulkInputTemplatesService;
 
 /**
@@ -14,7 +15,7 @@ import source.service.help.BulkInputTemplatesService;
  */
 @Controller
 @RequestMapping("/BulkInputTemplates")
-public class BulkInputTemplatesController {
+public class BulkInputTemplatesController extends BaseController{
 	
 	@Autowired
 	private BulkInputTemplatesService bulkInputTemplatesService;
@@ -44,11 +45,21 @@ public class BulkInputTemplatesController {
 	public String ShopInfo(Model model) {
 		int processResult = bulkInputTemplatesService.shopInfoCsvDownload();
 		
-		if(processResult == -1) {
+		if(isProcessError(processResult)) {
 			model.addAttribute("clothesTopMenuErrMsg", "テンプレートのダウンロード中に例外が発生しました。");
 		}
 		
 		return "pages/clothesTopMenu";
+	}
+	
+	private boolean isProcessError(int processNum){
+		return (processNum == -1) ? true : false;
+	}
+
+	@Override
+	public String initPage() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
