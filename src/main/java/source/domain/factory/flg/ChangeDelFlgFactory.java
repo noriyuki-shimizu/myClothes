@@ -7,7 +7,6 @@ public class ChangeDelFlgFactory extends ChangeFlgFactory<String>{
 
 	@Override
 	protected ChangeFlg createObj(String flg) {
-		
 		return null;
 	}
 
