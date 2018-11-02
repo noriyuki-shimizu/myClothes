@@ -1,5 +1,10 @@
 #!/bin/bash
 
+cd /c/env/springworkspace_terada/my_clothes/
 git add -A
 git commit -m $1
 git push origin master
+
+PATH = $(pwd)
+
+cd $PATH
