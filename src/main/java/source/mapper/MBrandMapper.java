@@ -5,7 +5,6 @@ import java.util.List;
 
 import source.domain.factory.flg.ChangeDelFlgFactory;
 import source.domain.factory.flg.bs.ChangeFlgFactory;
-import source.domain.flg.ChangeDelFlg;
 import source.domain.flg.bsFlg.ChangeFlg;
 import source.dto.MBrandDto;
 import source.entity.MBrandEntity;
@@ -80,10 +79,9 @@ public class MBrandMapper extends BaseMapper<MBrandEntity, MBrandDto> {
 		this.d.setInsertDate(e.getInsertDate());
 		this.d.setUpdateDate(e.getUpdateDate());
 		
-		ChangeFlgFactory<Boolean> factory = new ChangeDelFlgFactory();
-		ChangeFlg changeFlg = factory.type2Create(e.getDeleteFlg());
-//		ChangeFlg changeFlg = new ChangeDelFlg(e.getDeleteFlg());
-		this.d.setDeleteFlgStr(changeFlg.changeFlgBoolToStr());
+		ChangeFlgFactory factory = new ChangeDelFlgFactory();
+		ChangeFlg changeFlg = factory.create(e.getDeleteFlg());
+		this.d.setDeleteFlgStr(changeFlg.changeFlg());
 		
 		return this.d;
 	}

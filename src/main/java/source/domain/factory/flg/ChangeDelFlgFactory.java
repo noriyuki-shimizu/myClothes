@@ -1,13 +1,13 @@
 package source.domain.factory.flg;
 
 import source.domain.factory.flg.bs.ChangeFlgFactory;
-import source.domain.flg.bsFlg.ChangeFlg;
+import source.domain.flg.ChangeDelFlg;
 
-public class ChangeDelFlgFactory extends ChangeFlgFactory<String>{
+public class ChangeDelFlgFactory extends ChangeFlgFactory {
 
 	@Override
-	protected ChangeFlg createObj(String flg) {
-		return null;
+	protected ChangeDelFlg createObj(Boolean flg) {
+		return new ChangeDelFlg(flg);
 	}
 
 }

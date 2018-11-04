@@ -3,7 +3,7 @@ package source.domain.flg;
 import source.domain.flg.bsFlg.ChangeFlg;
 
 /**
- * 削除フラグを変換するクラス.
+ * 削除フラグをBoolean値からString値へ変換するクラス.
  * @author Noriyuki-Shimizu
  *
  */
@@ -21,26 +21,17 @@ public class ChangeDelFlg extends ChangeFlg {
 		super(delFlg);
 	}
 	
-	public ChangeDelFlg(String delFlgStr) {
-		super(delFlgStr);
-	}
-	
 	@Override
-	public String changeFlgBoolToStr() {
-		if(this.flgBool == null) {
+	public String changeFlg() {
+		if(this.isNullOrEmpty()) {
 			throw new NullPointerException();
 		}
 		
-		return (this.flgBool) ? delFlgStat.DEL_MSG : delFlgStat.NON_DEL_MSG;
+		return 	Boolean.valueOf(this.flg) ? delFlgStat.DEL_MSG : delFlgStat.NON_DEL_MSG;
 	}
 	
-	@Override
-	public Boolean changeFlgStrToBool() {
-		if(this.flgStr == null) {
-			throw new NullPointerException();
-		}
-		
-		return (this.flgStr.equals(delFlgStat.DEL_MSG)) ? true : false;
+	private boolean isNullOrEmpty() {
+		return this.flg == null;
 	}
 
 }
