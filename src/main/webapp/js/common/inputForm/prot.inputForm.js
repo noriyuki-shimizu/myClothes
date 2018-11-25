@@ -222,7 +222,6 @@ var InputForm = {
 				inputForm.$formAppend();
 			});
 			
-			// TODO: prototypeに切り出して！
 			// フォーム削除ボタン押下時のイベント
 			$("#delete_form_button").on('click', () => {
 				InputForm.isFormChecked($(".select-regist-form")).then(resltFlg => {
