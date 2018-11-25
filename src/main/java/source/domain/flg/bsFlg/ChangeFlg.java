@@ -5,7 +5,7 @@ package source.domain.flg.bsFlg;
  * @author Noriyuki-Shimizu
  *
  */
-public abstract class ChangeFlg {
+public abstract class ChangeFlg<T> {
 	
 	protected Boolean flg;
 	
@@ -18,6 +18,6 @@ public abstract class ChangeFlg {
 	 * 必ず、コンストラクタで値を設定してください.
 	 * @return 変換されたフラグ
 	 */
-	public abstract String changeFlg();
+	public abstract T changeFlg();
 	
 }

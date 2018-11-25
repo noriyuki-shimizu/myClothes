@@ -7,7 +7,7 @@ import source.domain.flg.bsFlg.ChangeFlg;
  * @author Noriyuki-Shimizu
  *
  */
-public class ChangeDelFlg extends ChangeFlg {
+public class ChangeDelFlg extends ChangeFlg<String> {
 	
 	private static class delFlgStat {
 		

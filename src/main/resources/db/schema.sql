@@ -1,30 +1,36 @@
 -- drop all tables
 
+drop table if exists b_screen;
+drop table if exists b_menu;
+
+drop table if exists my_clothes;
 drop table if exists m_brand;
 drop table if exists m_genre;
 drop table if exists m_shop;
 drop table if exists m_log;
-drop table if exists my_clothes;
 
 
+-- create tables base
+-- メニューマスタ
+create table b_menu (
+	menu_id bigserial PRIMARY KEY,
+	menu_cd varchar(50) NOT NULL,
+	menu_nm varchar(50) NOT NULL,
+	UNIQUE ( menu_cd, menu_nm )
+); 
 
--- create tables
-
--- 私の服
-create table if not exists my_clothes (
-	my_clothes_id bigserial PRIMARY KEY,         -- 主キー
-	brand_id int NOT NULL UNIQUE,                -- ブランドID
-	genre_id int NOT NULL UNIQUE,                -- ジャンルID
-	shop_id int NOT NULL UNIQUE,                 -- 店ID
-	image_path text NOT NULL,                    -- 画像パス 
-	price int,                                   -- 金額
-	purchase_date date,                          -- 購入日
-	details text,                                -- 備考
-	insert_date date,                            -- 挿入日時
-	update_date date,                            -- 更新日時
-	delete_flg boolean NOT NULL DEFAULT false     -- 削除フラグ
+--  画面マスタ
+create table if not exists b_screen (
+	screen_id bigserial PRIMARY KEY,
+	screen_cd varchar(50) NOT NULL,
+	screen_nm varchar(50) NOT NULL,
+	menu_id int REFERENCES b_menu (menu_id),
+	init_url varchar(100) NOT NULL,
+	UNIQUE ( screen_cd, screen_nm )	
 );
 
+
+-- create tables master
 -- ブランドマスタ
 create table if not exists m_brand (
 	brand_id serial PRIMARY KEY,
@@ -58,6 +64,21 @@ create table if not exists m_shop (
 	insert_date date,
 	update_date date,
 	delete_flg boolean NOT NULL DEFAULT false
+);
+
+-- 私の服
+create table if not exists my_clothes (
+	my_clothes_id bigserial PRIMARY KEY,                        -- 主キー
+	brand_id int NOT NULL UNIQUE REFERENCES m_brand (brand_id), -- ブランドID
+	genre_id int NOT NULL UNIQUE REFERENCES m_genre (genre_id), -- ジャンルID
+	shop_id int NOT NULL UNIQUE REFERENCES m_shop (shop_id),    -- 店ID
+	image_path text NOT NULL,                                   -- 画像パス 
+	price int,                                                  -- 金額
+	purchase_date date,                                         -- 購入日
+	details text,                                               -- 備考
+	insert_date date,                                           -- 挿入日時
+	update_date date,                                           -- 更新日時
+	delete_flg boolean NOT NULL DEFAULT false                   -- 削除フラグ
 );
 
 -- ログマスタ

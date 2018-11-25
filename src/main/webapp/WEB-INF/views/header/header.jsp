@@ -32,13 +32,7 @@
 		<li><a class="notLink" href="#">システム</a>
 			<ul>	
 				<li><a href="${pageContext.request.contextPath}/ClothesInfoBulkInput/">服情報一括取り込み</a></li>
-				<li><a href="${pageContext.request.contextPath}/ClothesInfoInput/">服情報入力</a>
-<!-- 					<ul class="sub-menu"> -->
-<!-- 						<li><a class="notLink" href="#">サブアイテム</a></li> -->
-<!-- 						<li><a class="notLink" href="#">サブアイテム</a></li> -->
-<!-- 						<li><a class="notLink" href="#">サブアイテム</a></li> -->
-<!-- 					</ul> -->
-				</li>
+				<li><a href="${pageContext.request.contextPath}/ClothesInfoInput/">服情報入力</a></li>
 				<li><a href="${pageContext.request.contextPath}/ShopInfoBulkInput/">お店情報一括取り込み</a></li>
 				<li><a href="${pageContext.request.contextPath}/ShopInfoInput/">お店情報入力</a></li>
 				<li><a href="${pageContext.request.contextPath}/BrandInfoMaintenance/">ブランド情報メンテナンス</a></li>

@@ -1,3 +1,30 @@
+-- メニューマスタのデフォルト値
+INSERT INTO b_menu(menu_cd, menu_nm)
+VALUES
+('topMenu', 'トップメニュー'),
+('myClothes', '私の服'),
+('system', 'システム'),
+('help', 'ヘルプ')
+;
+
+-- 画面マスタのデフォルト値
+INSERT INTO b_screen(screen_cd, screen_nm, menu_id, init_url)
+VALUES
+('topMenu', 'トップメニュー', 1, '/topMenu/'),
+('MyClothesList', '服一覧', 2, '/MyClothesList/'),
+('BrandList', 'ブランド一覧', 2, '/BrandList/'),
+('FrequentShopList', 'よく行くお店', 2, '/FrequentShopList/'),
+('TotalInformation', 'トータル情報', 2, '/TotalInformation/'),
+('ClothesInfoBulkInput', '服情報一括取り込み', 3, '/ClothesInfoBulkInput/'),
+('ClothesInfoInput', '服情報入力', 3, '/ClothesInfoInput/'),
+('ShopInfoBulkInput', 'お店情報一括取り込み', 3, '/ShopInfoBulkInput/'),
+('ShopInfoInput', 'お店情報入力', 3, '/ShopInfoInput/'),
+('BrandInfoMaintenance', 'ブランド情報メンテナンス', 3, '/BrandInfoMaintenance/'),
+('GenreInfoMaintenance', 'ジャンル情報メンテナンス', 3, '/GenreInfoMaintenance/'),
+('ClothesInfoBulkInputTemplate', '服情報一括取り込み用テンプレート', 4, '/BulkInputTemplates/ClothesInfo'),
+('ShopInfoBulkInputTemplate', 'お店情報一括取り込み用テンプレート', 4, '/BulkInputTemplates/ShopInfo')
+;
+
 -- ブランドマスタのデフォルト値
 INSERT INTO m_brand(brand_cd, brand_name, country, details)
 VALUES 

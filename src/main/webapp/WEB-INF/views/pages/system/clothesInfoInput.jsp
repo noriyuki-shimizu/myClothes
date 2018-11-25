@@ -94,7 +94,7 @@
 </body>
 
 <link type="text/css" media="screen" href="${pageContext.request.contextPath}/css/common/inputForm/inputFormHedder.css" rel="stylesheet" />
-<script src="${pageContext.request.contextPath}/js/common/inputForm/inputFormHedder.js"></script>
+<script src="${pageContext.request.contextPath}/js/common/inputForm/prot.inputForm.js"></script>
 <script src="${pageContext.request.contextPath}/js/pages/system/clothesInfoInput.js"></script>
 
 </html>

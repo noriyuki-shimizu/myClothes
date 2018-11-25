@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EntityScan("source.dto")
+@EntityScan("source.entity")
 @EnableJpaRepositories("source.repository.myClothes")
 public class MyClothesApplication {
 

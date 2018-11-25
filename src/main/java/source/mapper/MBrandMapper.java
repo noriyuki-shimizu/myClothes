@@ -3,6 +3,8 @@ package source.mapper;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import source.domain.factory.flg.ChangeDelFlgFactory;
 import source.domain.factory.flg.bs.ChangeFlgFactory;
 import source.domain.flg.bsFlg.ChangeFlg;
@@ -10,6 +12,7 @@ import source.dto.MBrandDto;
 import source.entity.MBrandEntity;
 import source.mapper.bsMapper.BaseMapper;
 
+@Component
 public class MBrandMapper extends BaseMapper<MBrandEntity, MBrandDto> {
 
 	@Override
@@ -79,8 +82,8 @@ public class MBrandMapper extends BaseMapper<MBrandEntity, MBrandDto> {
 		this.d.setInsertDate(e.getInsertDate());
 		this.d.setUpdateDate(e.getUpdateDate());
 		
-		ChangeFlgFactory factory = new ChangeDelFlgFactory();
-		ChangeFlg changeFlg = factory.create(e.getDeleteFlg());
+		ChangeFlgFactory<String> factory = new ChangeDelFlgFactory();
+		ChangeFlg<String> changeFlg = factory.create(e.getDeleteFlg());
 		this.d.setDeleteFlgStr(changeFlg.changeFlg());
 		
 		return this.d;

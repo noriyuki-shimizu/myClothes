@@ -1,12 +1,11 @@
 package source.controller.base;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+public abstract class BaseController extends BaseCommonController{
 
-public abstract class BaseController {
-	
-	/**	JSON型を変換する */
-	protected static final ObjectMapper MAPPER = new ObjectMapper();
-	
+	/**
+	 * 各画面における初期処理.
+	 * @return 各画面の初期表示
+	 */
 	public abstract String initPage();
 
 }

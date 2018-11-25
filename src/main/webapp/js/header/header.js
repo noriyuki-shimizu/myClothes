@@ -7,6 +7,9 @@ $(function() {
 	// スマートメニュー実行
 	$("#main-menu").smartmenus();
 	
+	// メニュー、画面情報を取得
+	getScreen()
+	
 	// リンク無効
 	$(".notLink").click(() => {
 		return false;
@@ -22,3 +25,7 @@ $(function() {
 	// TODO: テンプレート一括取り込みのエラーについての処理を記述
 	
 });
+
+function getScreen() {
+	
+}

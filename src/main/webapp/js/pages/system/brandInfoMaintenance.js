@@ -50,7 +50,7 @@ function setBrandInfoListGrid(BrandInfoList) {
 	
 	mcpJqGrid
 		.setOption(option)
-		.execute($("#brandInfoGrid"), $("#pager1"))
-		.resize($("#brandInfoGrid"));
+		.execute($("#mcpGrid"), $("#pager1"))
+		.resize($("#mcpGrid"));
 	
 }

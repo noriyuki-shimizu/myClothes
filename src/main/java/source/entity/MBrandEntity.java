@@ -16,12 +16,6 @@ import javax.persistence.Table;
 @Table(name = "m_brand")
 public class MBrandEntity {
 	
-	public MBrandEntity() {}
-	
-	public MBrandEntity(Integer brandId) {
-		this.brandId = brandId;
-	}
-	
 	/**	主キー */
 	@Id
 	@Column(name = "brand_id")
