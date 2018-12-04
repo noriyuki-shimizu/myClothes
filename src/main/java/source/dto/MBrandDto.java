@@ -2,7 +2,7 @@ package source.dto;
 
 import java.sql.Timestamp;
 
-import source.dto.bsDto.BaseDto;
+import source.dto.base.BaseDto;
 
 public class MBrandDto extends BaseDto {
 

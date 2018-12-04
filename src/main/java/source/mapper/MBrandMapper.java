@@ -9,8 +9,8 @@ import source.domain.factory.flg.ChangeDelFlgFactory;
 import source.domain.factory.flg.bs.ChangeFlgFactory;
 import source.domain.flg.bsFlg.ChangeFlg;
 import source.dto.MBrandDto;
-import source.entity.MBrandEntity;
-import source.mapper.bsMapper.BaseMapper;
+import source.entity.myClothes.MBrandEntity;
+import source.mapper.base.BaseMapper;
 
 @Component
 public class MBrandMapper extends BaseMapper<MBrandEntity, MBrandDto> {

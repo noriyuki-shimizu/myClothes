@@ -9,3 +9,4 @@
 <script src="${pageContext.request.contextPath}/js/common/jquery/prot.ajax.js"></script>
 <script src="${pageContext.request.contextPath}/js/common/jqGrid/prot.jqGrid.js"></script>
 <script src="${pageContext.request.contextPath}/js/common/jquery-ui/prot.ui-message.js"></script>
+<script src="${pageContext.request.contextPath}/js/common/ink/ink-all.min.js"></script>

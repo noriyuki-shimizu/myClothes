@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import source.dto.MBrandDto;
-import source.entity.MBrandEntity;
+import source.entity.myClothes.MBrandEntity;
 import source.mapper.MBrandMapper;
 import source.repository.myClothes.MBrandRepository;
 

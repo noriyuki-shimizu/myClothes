@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import source.controller.base.BaseController;
+import source.domain.common.AppContext;
 
 /**
  * トップメニューに関するコントローラクラス.
@@ -13,7 +14,7 @@ import source.controller.base.BaseController;
 @Controller
 @RequestMapping("/topMenu")
 public class ClothesTopMenuController extends BaseController{
-
+	
 	/**
 	 * トップメニュー（初期画面）を表示します.
 	 * 
@@ -21,6 +22,7 @@ public class ClothesTopMenuController extends BaseController{
 	 */
 	@RequestMapping("/")
 	public String initPage() {
+		System.out.println(AppContext.getContext().getContextPath());
 		return "pages/clothesTopMenu";
 	}
 	

@@ -1,4 +1,4 @@
-package source.mapper.bsMapper;
+package source.mapper.base;
 
 import java.util.List;
 

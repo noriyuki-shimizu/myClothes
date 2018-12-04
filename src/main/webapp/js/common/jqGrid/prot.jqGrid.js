@@ -68,7 +68,7 @@ var JqGrid = {
 				// jqGrid
 				$grid.jqGrid({
 					data:this.data,             //表示したいデータ
-		            datatype : "local",         //データの種別 他にjsonやxmlも選べます。
+		            datatype : 'local',         //データの種別 他にjsonやxmlも選べます。
 		            colNames : this.colNames,   //列の表示名
 		            colModel : this.colModel,   //列ごとの設定
 		            rowNum : this.rowNum,       //一ページに表示する行数
@@ -87,7 +87,7 @@ var JqGrid = {
 		            viewrecords: true,           //footerの右下に表示する。
 		            loadComplete : function () {
 		            	// div_dummy 枠の横幅を取得してグリッドに設定する
-		                $($grid).jqGrid('setGridWidth', $("#viewGrid").width(), true);
+		                $($grid).jqGrid('setGridWidth', $('#viewGrid').width(), true);
 		            }
 				});
 				

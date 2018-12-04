@@ -1,4 +1,4 @@
-package source.entity;
+package source.entity.myClothes;
 
 import java.sql.Timestamp;
 

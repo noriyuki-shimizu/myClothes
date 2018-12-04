@@ -2,6 +2,12 @@ package source.controller.base;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * 共通部分のController.
+ * 
+ * @author Noriyuki-Shimizu
+ *
+ */
 public class BaseCommonController {
 
 	/**	JSON型を変換する */

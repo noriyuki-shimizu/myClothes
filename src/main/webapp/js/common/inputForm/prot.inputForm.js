@@ -14,12 +14,12 @@ var InputForm = {
 	},
 	firstElementFocus: function(formDivCnt) {
 		// 新しく追加されたフォームにフォーカスを合わせる
-		var parentForm = $("#form_div" + formDivCnt).find(".form");
+		var parentForm = $('#form_div' + formDivCnt).find('.form');
 		// フォーカスを合わせる最初の要素取得
-		var nextFromOnFocus = $(parentForm).find("p")[0];
+		var nextFromOnFocus = $(parentForm).find('p')[0];
 		nextFromOnFocus = $(nextFromOnFocus).children()[2];
 		// フォーカスを合わせる最後の要素取得
-		var lastElementForm = $(parentForm).find("p")[$(parentForm).find("p").length - 1];
+		var lastElementForm = $(parentForm).find('p')[$(parentForm).find('p').length - 1];
 		lastElementForm = $(lastElementForm).children()[2];
 		// フォーカスを合わせる
 		$(lastElementForm).focus();
@@ -28,22 +28,22 @@ var InputForm = {
 	},
 	setElementsEvent: function(formDivCnt) {
 		// 登録フォームのチェックボックスが変更時のイベント
-		$("#select_regist_form" + formDivCnt).on("change", () => {
-			var $selectRegistFormId = $("#select_regist_form" + formDivCnt);
-			var $checkRegistLabel = $("#check_regist_label" + formDivCnt)
+		$('#select_regist_form' + formDivCnt).on('change', () => {
+			var $selectRegistFormId = $('#select_regist_form' + formDivCnt);
+			var $checkRegistLabel = $('#check_regist_label' + formDivCnt)
 			InputForm.selectRegistFormChangeText($selectRegistFormId, $checkRegistLabel);
 		});
 		
 		// 画像入力欄、検索ボタン押下時イベント
-		var imageClickEventString = "#image_text" + formDivCnt + ", #file_select_button" + formDivCnt;
-		$(imageClickEventString).on("click", () => {
-			$("#image_file" + formDivCnt).click();
+		var imageClickEventString = '#image_text' + formDivCnt + ', #file_select_button' + formDivCnt;
+		$(imageClickEventString).on('click', () => {
+			$('#image_file' + formDivCnt).click();
 		});
 		
 		// 画像ファイル選択時のイベント
-		$("#image_file" + formDivCnt).on('change', function() {
-			InputForm.setFileName(this, $("#image_text" + formDivCnt));
-			InputForm.imageTooltipAppend(this, $("#image_text" + formDivCnt));
+		$('#image_file' + formDivCnt).on('change', function() {
+			InputForm.setFileName(this, $('#image_text' + formDivCnt));
+			InputForm.imageTooltipAppend(this, $('#image_text' + formDivCnt));
 		});
 	},
 	// フォームの削除
@@ -56,8 +56,8 @@ var InputForm = {
 	// 選択されたフォームの削除実行メソッド
 	selectFormRemove: function(selectedElement) {
 		return new Promise(resolve => {
-			if($(selectedElement).prop("checked")) {
-				$(selectedElement).parent().css("display", "none");
+			if($(selectedElement).prop('checked')) {
+				$(selectedElement).parent().css('display', 'none');
 				$(selectedElement).parent().remove();
 			}
 			resolve();
@@ -65,12 +65,12 @@ var InputForm = {
 	},
 	selectRegistFormChangeText: function($selectRegistFormChecked, checkRegistLabel) {
 		if($selectRegistFormChecked.prop('checked')) {
-			$(checkRegistLabel).text("選択済");
-			$(checkRegistLabel).css("color", "#0171bd");
+			$(checkRegistLabel).text('選択済');
+			$(checkRegistLabel).css('color', '#0171bd');
 			return ;
 		}
-		$(checkRegistLabel).text("未選択");
-		$(checkRegistLabel).css("color", "red");
+		$(checkRegistLabel).text('未選択');
+		$(checkRegistLabel).css('color', 'red');
 	},
 	setDatepicker: function($purchaseDate) {
 		// Datepicker オプションの初期値定義を変更
@@ -109,11 +109,11 @@ var InputForm = {
 			changeMonth : true,        // 月選択をプルダウン化
 
 			// カレンダーアイコンを用意する
-			buttonImage : $("#contextPath").text()
-					+ "/img/pages/system/inputForm/calendar.png", // カレンダーアイコン画像
-			buttonText : "カレンダーから選択", // ツールチップ表示文言
+			buttonImage : $('#contextPath').text()
+					+ '/img/pages/system/inputForm/calendar.png', // カレンダーアイコン画像
+			buttonText : 'カレンダーから選択', // ツールチップ表示文言
 			buttonImageOnly : true,      // 画像として表示
-			showOn : "both"              // カレンダー呼び出し元の定義
+			showOn : 'both'              // カレンダー呼び出し元の定義
 		});
 
 		// ライブラリの環境で「Today」が反応しないため、仕方なく以下で対処
@@ -136,7 +136,7 @@ var InputForm = {
 				$imageText.tooltip({
 					items: 'input',
 					content: function() {
-						var tooltipText = '<img src="' + fr.result + '" width="100%"/>'
+						var tooltipText = '<img src="" + fr.result + "" width="100%"/>'
 						return tooltipText;
 					}
 				});
@@ -157,13 +157,13 @@ var InputForm = {
 			return ;
 		} 
 		// ファイルが選択されていない場合
-		$(imageText).val("");
+		$(imageText).val('');
 	},
 	// フォームが選択されているか判定
 	isFormChecked: async function($selectRegistForms) {
 		var checkedFlg = false;
 		$selectRegistForms.each((i, selectRegistForm) => {
-			i != 0 && $(selectRegistForm).prop("checked") ? checkedFlg = true : void 0;
+			i != 0 && $(selectRegistForm).prop('checked') ? checkedFlg = true : void 0;
 		});
 		return checkedFlg;
 	},
@@ -171,25 +171,25 @@ var InputForm = {
 		return confirm(dialogMsg) ? true : false;
 	},
 	selectAllCheck: function() {
-		$(".select-regist-form").each((i, value) => {
+		$('.select-regist-form').each((i, value) => {
 			if(i === 0) return true;
 			!$(value).prop('checked') ? $(value).prop('checked', true) : void 0;
 		});
-		$(".check-regist-label").each((i, value) => {
+		$('.check-regist-label').each((i, value) => {
 			if(i === 0) return true;
-			$(value).text("選択済");
-			$(value).css("color", "#0171bd");
+			$(value).text('選択済');
+			$(value).css('color', '#0171bd');
 		});
 	},
 	clearAllCheck: function() {
-		$(".select-regist-form").each((i, value) => {
+		$('.select-regist-form').each((i, value) => {
 			if(i === 0) return true;
 			$(value).prop('checked') ? $(value).prop('checked', false) : void 0;
 		});
-		$(".check-regist-label").each((i, value) => {
+		$('.check-regist-label').each((i, value) => {
 			if(i === 0) return true;
-			$(value).text("未選択");
-			$(value).css("color", "red");
+			$(value).text('未選択');
+			$(value).css('color', 'red');
 		});
 	},
 	// プロトタイプオブジェクト
@@ -200,7 +200,7 @@ var InputForm = {
 		},
 		
 		setFormDivCount: function() {
-			this.formDivCount = String($(".form-div").length + 1);
+			this.formDivCount = String($('.form-div').length + 1);
 		},
 		
 		searchFormEventSet: function() {
@@ -218,19 +218,19 @@ var InputForm = {
 			var inputForm = this;
 
 			// フォーム追加ボタン押下時のイベント
-			$("#add_form_button").on('click', () => {
+			$('#add_form_button').on('click', () => {
 				inputForm.$formAppend();
 			});
 			
 			// フォーム削除ボタン押下時のイベント
-			$("#delete_form_button").on('click', () => {
-				InputForm.isFormChecked($(".select-regist-form")).then(resltFlg => {
+			$('#delete_form_button').on('click', () => {
+				InputForm.isFormChecked($('.select-regist-form')).then(resltFlg => {
 					if(!resltFlg) {
 						// エラーメッセージの表示
 						mcpMessage
 							.messageClear()
 							.viewMessage()
-							.setMessage("フォームを選択してください。")
+							.setMessage('フォームを選択してください。')
 							.displayError();
 						return ;
 					}
@@ -242,10 +242,10 @@ var InputForm = {
 					const formDeleteConfirmMsg = '選択されたフォームを削除します。\nよろしいですか？\n\n※入力されたフォーム内の情報も削除されてしまいます。';
 					var exeFunc = function() {
 						if(InputForm.isConfirm(formDeleteConfirmMsg)) {
-							InputForm.formRemove($(".select-regist-form")).then(() => {
+							InputForm.formRemove($('.select-regist-form')).then(() => {
 								// フォームがすべて削除された場合
 								// true -> フォームを1つ追加する
-								$(".form-div").length === 0 ? inputForm.$formAppend() : void 0;
+								$('.form-div').length === 0 ? inputForm.$formAppend() : void 0;
 							});
 						}
 					}
@@ -256,12 +256,12 @@ var InputForm = {
 			});
 			
 			// 全選択がクリックされた際のイベント
-			$("#select_all_button").on('click', () => {
+			$('#select_all_button').on('click', () => {
 				InputForm.selectAllCheck();
 			});
 			
 			// 全解除がクリックされた際のイベント
-			$("#clear_all_button").on('click', () => {
+			$('#clear_all_button').on('click', () => {
 				InputForm.clearAllCheck();
 			});
 			
@@ -270,39 +270,39 @@ var InputForm = {
 		
 		$formAppend: function() {
 			// フォームのクローン
-			$cloneFormDiv = $("#form_div_template").clone();
+			$cloneFormDiv = $('#form_div_template').clone();
 			// フォームの数設定
 			this.setFormDivCount();
 			
 			// ========== クローンしたフォームの設定 ==========
 			
 			// formのid設定
-			$cloneFormDiv.attr("id", "form_div" + this.formDivCount);
+			$cloneFormDiv.attr('id', 'form_div' + this.formDivCount);
 			
 			// formの選択チェックボックスのid,lavel設定
-			$cloneFormDiv.find("#select_regist_form").attr("id", "select_regist_form" + this.formDivCount);
-			$cloneFormDiv.find("#check_regist_label").attr("for", "select_regist_form" + this.formDivCount);
-			$cloneFormDiv.find("#check_regist_label").attr("id", "check_regist_label" + this.formDivCount);
+			$cloneFormDiv.find('#select_regist_form').attr('id', 'select_regist_form' + this.formDivCount);
+			$cloneFormDiv.find('#check_regist_label').attr('for', 'select_regist_form' + this.formDivCount);
+			$cloneFormDiv.find('#check_regist_label').attr('id', 'check_regist_label' + this.formDivCount);
 			
 			// カレンダーのid設定
-			$cloneFormDiv.find("#purchase_date").attr("id", "purchase_date" + this.formDivCount);
+			$cloneFormDiv.find('#purchase_date').attr('id', 'purchase_date' + this.formDivCount);
 			
 			// 画像ファイル選択における設定
-			$cloneFormDiv.find("#image_text").attr("id", "image_text" + this.formDivCount);
-			$cloneFormDiv.find("#file_select_button").attr("id", "file_select_button" + this.formDivCount);
-			$cloneFormDiv.find("#image_file").attr("id", "image_file" + this.formDivCount)
+			$cloneFormDiv.find('#image_text').attr('id', 'image_text' + this.formDivCount);
+			$cloneFormDiv.find('#file_select_button').attr('id', 'file_select_button' + this.formDivCount);
+			$cloneFormDiv.find('#image_file').attr('id', 'image_file' + this.formDivCount)
 			
 			// formのclass設定
-			$cloneFormDiv.addClass("form-div");
+			$cloneFormDiv.addClass('form-div');
 			
 			// 非表示を表示に変換
-			$cloneFormDiv.css("display", "");
+			$cloneFormDiv.css('display', '');
 			
 			// jQuery UI カレンダーオプション設定
-			InputForm.setDatepicker($cloneFormDiv.find("#purchase_date" + this.formDivCount));
+			InputForm.setDatepicker($cloneFormDiv.find('#purchase_date' + this.formDivCount));
 
 			// jspにformをアペンド
-			$("#form_main").append($cloneFormDiv);
+			$('#form_main').append($cloneFormDiv);
 
 			// 要素にフォーカスを合わせる
 			InputForm.firstElementFocus(this.formDivCount);

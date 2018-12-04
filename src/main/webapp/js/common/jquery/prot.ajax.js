@@ -62,7 +62,7 @@ var Ajax = {
 				beforeSend: this.beforeSend,
 				statusCode: {
 					404: function() {
-						console.err("404 Not Found.");
+						console.err('404 Not Found.');
 					}
 				}
 			})

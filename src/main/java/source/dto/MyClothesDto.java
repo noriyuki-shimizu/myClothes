@@ -3,10 +3,10 @@ package source.dto;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
-import source.dto.bsDto.BaseDto;
-import source.entity.MBrandEntity;
-import source.entity.MGenreEntity;
-import source.entity.MShopEntity;
+import source.dto.base.BaseDto;
+import source.entity.myClothes.MBrandEntity;
+import source.entity.myClothes.MGenreEntity;
+import source.entity.myClothes.MShopEntity;
 
 public class MyClothesDto extends BaseDto {
 

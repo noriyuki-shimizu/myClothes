@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EntityScan("source.entity")
-@EnableJpaRepositories("source.repository.myClothes")
+@EnableJpaRepositories("source.repository")
 public class MyClothesApplication {
 
 	public static void main(String[] args) {

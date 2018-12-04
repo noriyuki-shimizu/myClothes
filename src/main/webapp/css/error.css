@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+
+body {
+	display: table;
+	background-color: #dddddd;
+	color: #000000;
+	margin: auto;
+	height: 100vh;
+	width: 100vw;
+	font-size: 30px;
+}
+
+#error-parent {
+	height: 100%;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#error-message {
+	margin-top: 60px;
+}

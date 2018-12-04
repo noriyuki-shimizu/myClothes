@@ -14,7 +14,7 @@ var UiMessage = {
 				//
 				$uiWidgetMsg : $('.ui-widget-msg'),
 				//
-				$viewMessage : $(".view-message")
+				$viewMessage : $('.view-message')
 			});
 			// メッセージ
 			uiMessage.message = null;
@@ -42,7 +42,7 @@ var UiMessage = {
 			 * メッセージ表示
 			 */
 			viewMessage: function() {
-				this.$elem.$uiWidgetMsg.css("display", "");
+				this.$elem.$uiWidgetMsg.css('display', '');
 				return this;
 			},
 			
@@ -59,7 +59,7 @@ var UiMessage = {
 			 * closeボタン押下時など、メッセージを閉じる
 			 */
 			closeMessage: async function() {
-				return this.$elem.$uiWidgetMsg.css("display", "none");
+				return this.$elem.$uiWidgetMsg.css('display', 'none');
 			},
 			
 			/**
