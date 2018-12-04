@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
-import source.controller.base.BaseController;
-import source.dto.MBrandDto;
+import source.controller.BaseController;
+import source.dto.myClothes.MBrandDto;
 import source.service.myClothes.MBrandService;
 
 /**

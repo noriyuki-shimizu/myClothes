@@ -3,7 +3,7 @@ package source.controller.system;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import source.controller.base.BaseController;
+import source.controller.BaseController;
 
 /**
  * お店情報入力に関するコントローラクラス.

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import source.controller.base.BaseController;
+import source.controller.BaseController;
 import source.service.help.BulkInputTemplatesService;
 
 /**

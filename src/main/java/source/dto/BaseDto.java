@@ -1,4 +1,4 @@
-package source.dto.base;
+package source.dto;
 
 public class BaseDto {
 

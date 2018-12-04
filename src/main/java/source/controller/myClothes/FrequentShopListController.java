@@ -3,7 +3,7 @@ package source.controller.myClothes;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import source.controller.base.BaseController;
+import source.controller.BaseController;
 
 /**
  * よく行くお店に関するコントローラクラス.

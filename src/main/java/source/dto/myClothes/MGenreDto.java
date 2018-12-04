@@ -1,8 +1,8 @@
-package source.dto;
+package source.dto.myClothes;
 
 import java.sql.Timestamp;
 
-import source.dto.base.BaseDto;
+import source.dto.BaseDto;
 
 public class MGenreDto extends BaseDto {
 

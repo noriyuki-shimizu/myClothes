@@ -1,4 +1,4 @@
-package source.controller.base;
+package source.controller;
 
 /**
  * ベースとなるコントローラ.

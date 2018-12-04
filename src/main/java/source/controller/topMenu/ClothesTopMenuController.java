@@ -3,7 +3,7 @@ package source.controller.topMenu;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import source.controller.base.BaseController;
+import source.controller.BaseController;
 import source.domain.common.AppContext;
 
 /**

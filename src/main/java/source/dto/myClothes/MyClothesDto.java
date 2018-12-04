@@ -1,9 +1,9 @@
-package source.dto;
+package source.dto.myClothes;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
-import source.dto.base.BaseDto;
+import source.dto.BaseDto;
 import source.entity.myClothes.MBrandEntity;
 import source.entity.myClothes.MGenreEntity;
 import source.entity.myClothes.MShopEntity;

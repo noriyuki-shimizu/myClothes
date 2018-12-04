@@ -1,16 +1,8 @@
-package source.mapper.base;
+package source.mapper;
 
 import java.util.List;
 
 public abstract class BaseMapper<E, D> {
-	
-	protected E e;
-	
-	protected D d;
-	
-	protected List<E> es;
-	
-	protected List<D> ds;
 	
 	public abstract E mappingToEntity(D d);
 	
