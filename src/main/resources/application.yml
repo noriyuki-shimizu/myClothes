@@ -4,9 +4,9 @@ spring:
     url: jdbc:postgresql://localhost:5432/myClothes
     username: postgres
     password: postgres
-#    schema: classpath:/db/schema.sql
-#    data: classpath:/db/data.sql
-#    sql-script-encoding: UTF-8
+    schema: classpath:/db/schema.sql
+    data: classpath:/db/data.sql
+    sql-script-encoding: UTF-8
   mvc:
     view:
       prefix: /WEB-INF/views/

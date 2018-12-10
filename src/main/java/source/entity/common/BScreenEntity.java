@@ -2,6 +2,7 @@ package source.entity.common;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -29,7 +30,7 @@ public class BScreenEntity {
 	@Column(name = "init_url")
 	private String initUrl;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "menu_id")
     private BMenuEntity bMenuEntity;
 

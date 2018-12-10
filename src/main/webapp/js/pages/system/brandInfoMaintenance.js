@@ -20,7 +20,7 @@ async function getBrandInfo() {
 	
 	return await mcpAjax.setOption({
 		type: "GET",
-		url: contextPath + "/BrandInfoMaintenance/getDataList",
+		url: contextPath + "/ScreenInfo/getDataList",
 		data: {},
 		dataType: "json" 
 	})

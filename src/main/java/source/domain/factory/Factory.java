@@ -1,4 +1,4 @@
-package source.domain.factory.bs;
+package source.domain.factory;
 
 /**
  * <h2>オブジェクト製造工場.</h2>

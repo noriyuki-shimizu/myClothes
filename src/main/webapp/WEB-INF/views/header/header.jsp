@@ -1,8 +1,20 @@
-<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" import="source.domain.common.AppCookie"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+<%
+	//Cookieから"test_cookie_name"というKeyで登録された値(文字列)を取り出す
+	String contextCookieKey = "contextPath";
+	String value = AppCookie.getCookie(request, contextCookieKey);
+	
+	//valueがnullの場合のみCookieをセットする(期限は5分)
+	if (value == null) {
+		AppCookie.setCookie(request, response, "/", contextCookieKey, 5 * 60);
+	}
+%>
+
 <!DOCTYPE html>
 <html>
 <head>

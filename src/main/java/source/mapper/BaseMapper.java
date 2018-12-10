@@ -11,5 +11,5 @@ public abstract class BaseMapper<E, D> {
 	public abstract List<E> mappingToEntityList(List<D> ds);
 	
 	public abstract List<D> mappingToDtoList(List<E> es);
-
+	
 }

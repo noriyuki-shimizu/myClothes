@@ -1,5 +1,7 @@
 package source.dto.common;
 
+import java.util.List;
+
 import source.dto.BaseDto;
 
 public class BMenuDto extends BaseDto {
@@ -9,7 +11,9 @@ public class BMenuDto extends BaseDto {
 	private String menuCd;
 	
 	private String menuNm;
-
+	
+	private List<BScreenDto> bScreenDtoList; 
+	
 	public Long getMenuId() {
 		return menuId;
 	}
@@ -32,6 +36,14 @@ public class BMenuDto extends BaseDto {
 
 	public void setMenuNm(String menuNm) {
 		this.menuNm = menuNm;
+	}
+
+	public List<BScreenDto> getbScreenDtoList() {
+		return bScreenDtoList;
+	}
+
+	public void setbScreenDtoList(List<BScreenDto> bScreenDtoList) {
+		this.bScreenDtoList = bScreenDtoList;
 	}
 
 }

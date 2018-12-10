@@ -1,7 +1,6 @@
 package source.dto.common;
 
 import source.dto.BaseDto;
-import source.entity.common.BMenuEntity;
 
 public class BScreenDto extends BaseDto {
 
@@ -13,7 +12,7 @@ public class BScreenDto extends BaseDto {
 	
 	private String initUrl;
 
-    private BMenuEntity bMenuEntity;
+    private BMenuDto bMenuDto;
 
 	public Long getScreenId() {
 		return screenId;
@@ -47,12 +46,12 @@ public class BScreenDto extends BaseDto {
 		this.initUrl = initUrl;
 	}
 
-	public BMenuEntity getbMenuEntity() {
-		return bMenuEntity;
+	public BMenuDto getbMenuDto() {
+		return bMenuDto;
 	}
 
-	public void setbMenuEntity(BMenuEntity bMenuEntity) {
-		this.bMenuEntity = bMenuEntity;
+	public void setbMenuDto(BMenuDto bMenuDto) {
+		this.bMenuDto = bMenuDto;
 	}
 	
 }
