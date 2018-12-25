@@ -1,4 +1,4 @@
-package source.domain.factory.flg.bs;
+package source.factory.domain;
 
 import source.domain.flg.bsFlg.ChangeFlg;
 

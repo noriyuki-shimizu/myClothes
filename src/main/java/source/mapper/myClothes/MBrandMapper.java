@@ -5,12 +5,12 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import source.domain.factory.flg.ChangeDelFlgFactory;
-import source.domain.factory.flg.bs.ChangeFlgFactory;
 import source.domain.flg.bsFlg.ChangeFlg;
 import source.dto.myClothes.MBrandDto;
+import source.dtomapper.BaseMapper;
 import source.entity.myClothes.MBrandEntity;
-import source.mapper.BaseMapper;
+import source.factory.domain.ChangeFlgFactory;
+import source.factory.domain.flg.ChangeDelFlgFactory;
 
 @Component
 public class MBrandMapper extends BaseMapper<MBrandEntity, MBrandDto> {

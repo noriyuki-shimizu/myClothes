@@ -18,9 +18,6 @@ public class BMenuService {
 	@Autowired
 	private BMenuRepository bMenuRepository;
 	
-	@Autowired
-	private BMenuMapper mapper;
-	
 	/**
 	 * <h2>メニューマスタの全件検索.</h2>
 	 * <pre>
@@ -31,6 +28,9 @@ public class BMenuService {
 	 */
 	public List<BMenuDto> findAll() {
 		List<BMenuEntity> menuEntityList = bMenuRepository.findAll();
+		
+		BMenuMapper mapper = new BMenuMapper();
+		mapper.mappingOfRelatedTables(true);
 		
 		List<BMenuDto> menuDtoList = mapper.mappingToDtoList(menuEntityList);
 		

@@ -3,22 +3,18 @@ package source.mapper.common;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import source.domain.common.CU;
 import source.dto.common.BMenuDto;
 import source.dto.common.BScreenDto;
+import source.dtomapper.BaseMapper;
 import source.entity.common.BMenuEntity;
 import source.entity.common.BScreenEntity;
-import source.mapper.BaseMapper;
 
 @Component
 public class BScreenMapper extends BaseMapper<BScreenEntity, BScreenDto> {
 	
-	@Autowired
-	private BMenuMapper bMenuMapper;
-
 	@Override
 	public BScreenEntity mappingToEntity(BScreenDto d) {
 		return this.dtoToEntity(d);
@@ -54,9 +50,10 @@ public class BScreenMapper extends BaseMapper<BScreenEntity, BScreenDto> {
 	private BScreenEntity dtoToEntity(BScreenDto d) {
 		BScreenEntity e = new BScreenEntity();
 		
-		if(!CU.isObjectToNull(d.getbMenuDto())) {
-			d.getbMenuDto().setbScreenDtoList(new ArrayList<>());
-			
+		if(_mappingOfRelatedFlg && !CU.isObjectToNull(d.getbMenuDto())) {
+			d.getbMenuDto().setbScreenDtoList(null);
+
+			BMenuMapper bMenuMapper = new BMenuMapper();
 			BMenuEntity bMenuEntity = bMenuMapper.mappingToEntity(d.getbMenuDto());
 			
 			e.setbMenuEntity(bMenuEntity);
@@ -73,9 +70,10 @@ public class BScreenMapper extends BaseMapper<BScreenEntity, BScreenDto> {
 	private BScreenDto EntityToDto(BScreenEntity e) {
 		BScreenDto d = new BScreenDto();
 
-		if(!CU.isObjectToNull(e.getbMenuEntity())) {
-			e.getbMenuEntity().setbScreenList(new ArrayList<>());
+		if(_mappingOfRelatedFlg && !CU.isObjectToNull(e.getbMenuEntity())) {
+			e.getbMenuEntity().setbScreenList(null);
 			
+			BMenuMapper bMenuMapper = new BMenuMapper();
 			BMenuDto mMenuDto = bMenuMapper.mappingToDto(e.getbMenuEntity());
 			
 			d.setbMenuDto(mMenuDto);

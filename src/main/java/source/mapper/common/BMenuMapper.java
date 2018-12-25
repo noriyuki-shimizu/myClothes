@@ -3,22 +3,18 @@ package source.mapper.common;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import source.domain.common.CU;
 import source.dto.common.BMenuDto;
 import source.dto.common.BScreenDto;
+import source.dtomapper.BaseMapper;
 import source.entity.common.BMenuEntity;
 import source.entity.common.BScreenEntity;
-import source.mapper.BaseMapper;
 
 @Component
 public class BMenuMapper extends BaseMapper<BMenuEntity, BMenuDto>{
 
-	@Autowired
-	private BScreenMapper bScreenMapper;
-	
 	@Override
 	public BMenuEntity mappingToEntity(BMenuDto d) {
 		return this.dtoToEntity(d);
@@ -57,18 +53,19 @@ public class BMenuMapper extends BaseMapper<BMenuEntity, BMenuDto>{
 		e.setMenuCd(d.getMenuCd());
 		e.setMenuId(d.getMenuId());
 		e.setMenuNm(d.getMenuNm());
-
-		List<BScreenEntity> bScreenEntityList = new ArrayList<>();
 		
-		if(!CU.isListSizeToZero(d.getbScreenDtoList())) {
+		if(_mappingOfRelatedFlg && !CU.isListSizeToZero(d.getbScreenDtoList())) {
+			List<BScreenEntity> bScreenEntityList = new ArrayList<>();
+
 			d.getbScreenDtoList().stream().forEach(bScreenDto -> {
 				bScreenDto.setbMenuDto(null);
 			});
 			
+			BScreenMapper bScreenMapper = new BScreenMapper();
 			bScreenEntityList = bScreenMapper.mappingToEntityList(d.getbScreenDtoList());
+
+			e.setbScreenList(bScreenEntityList);
 		}
-		
-		e.setbScreenList(bScreenEntityList);
 		
 		return e;
 	}
@@ -80,17 +77,19 @@ public class BMenuMapper extends BaseMapper<BMenuEntity, BMenuDto>{
 		d.setMenuId(e.getMenuId());
 		d.setMenuNm(e.getMenuNm());
 		
-		List<BScreenDto> bScreenDtoList = new ArrayList<>();
-		
-		if(!CU.isListSizeToZero(e.getbScreenList())) {
+		if(_mappingOfRelatedFlg && !CU.isListSizeToZero(e.getbScreenList())) {
+			
+			List<BScreenDto> bScreenDtoList = new ArrayList<>();
+			
 			e.getbScreenList().stream().forEach(bScreen -> {
 				bScreen.setbMenuEntity(null);
 			});
 			
+			BScreenMapper bScreenMapper = new BScreenMapper();
 			bScreenDtoList = bScreenMapper.mappingToDtoList(e.getbScreenList());
+			
+			d.setbScreenDtoList(bScreenDtoList);
 		}
-		
-		d.setbScreenDtoList(bScreenDtoList);
 		
 		return d;
 	}

@@ -6,6 +6,7 @@
 <script src="${pageContext.request.contextPath}/js/common/jqGrid/jquery.jqGrid.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/common/smartmenus/jquerySmartmenus.js"></script>
 <script src="${pageContext.request.contextPath}/js/common/customJavaScript/customArray.js"></script>
+<script src="${pageContext.request.contextPath}/js/common/Cookie.js"></script>
 <script src="${pageContext.request.contextPath}/js/header/header.js"></script>
 <script src="${pageContext.request.contextPath}/js/common/jquery/prot.ajax.js"></script>
 <script src="${pageContext.request.contextPath}/js/common/jqGrid/prot.jqGrid.js"></script>

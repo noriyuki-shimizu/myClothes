@@ -7,9 +7,12 @@ $(function() {
 	// 共通のjQueryイベントをセットする
 	commonEventSet();
 	
-	getContext().then(contextPath => {
+	// Cookieオブジェクトの作成
+	var mcpCookie = _Cookie.create();
+	
+	mcpCookie.getCookieValue('contextPath').then(contextPath => {
 		// メニュー、画面情報を取得
-		getScreen(contextPath);
+		appendMenuHTML(contextPath);
 	});
 	
 });
@@ -32,25 +35,7 @@ function commonEventSet() {
 	
 }
 
-async function getContext() {
-	var r = document.cookie.split(';');
-
-	var contextPathKey = 'contextPath';
-    var contextPathValue;
-    
-	await r.pForEach(value => {
-	    //cookie名と値に分ける
-	    var content = value.split('=');
-	    
-	    if(contextPathKey === content[0]) {
-	    	contextPathValue = decodeURIComponent(content[1]);
-	    }
-	});
-	
-	return contextPathValue;
-}
-
-async function getScreen(contextPath) {
+async function appendMenuHTML(contextPath) {
 	
 	return mcpAjax.setOption({
 		type: "GET",
@@ -59,7 +44,5 @@ async function getScreen(contextPath) {
 		dataType: "json" 
 	})
 	// 非同期処理実行
-	.execute().then(v => {
-		console.log(v);
-	});
+	.execute();
 }
