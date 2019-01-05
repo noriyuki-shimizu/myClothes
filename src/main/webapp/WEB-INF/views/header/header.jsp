@@ -1,10 +1,12 @@
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page import="source.domain.common.AppCookie"%>
 <%@ page import="source.domain.common.CU"%>
+<%--
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+--%>
 
 <%
 	//Cookieから"test_cookie_name"というKeyで登録された値(文字列)を取り出す

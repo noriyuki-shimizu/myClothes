@@ -11,11 +11,6 @@ body {
 	z-index: 1000;
 }
 
-header {
-	background-image: url(../../img/yohji_collection.jpg);
-	height: 200px;
-}
-
 #contextPath {
 	display: none;
 }

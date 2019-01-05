@@ -51,7 +51,7 @@ var UiMessage = {
 			 */
 			messageClear: function() {
 				this.$elem.$viewMessage.empty();
-				this.$elem.$viewMessage.append(this.subMsgElement);
+				this.$elem.$viewMessage.append(this.$elem.subMsgElement);
 				return this;
 			},
 			
@@ -118,4 +118,7 @@ var UiMessage = {
 		}
 }
 
-var mcpMessage = UiMessage.create();
+var mcpMessage;
+window.onload = function() {
+	mcpMessage = UiMessage.create();
+}
